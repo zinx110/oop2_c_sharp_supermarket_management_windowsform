@@ -17,7 +17,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new WelcomePage());
         }
     }
 }
