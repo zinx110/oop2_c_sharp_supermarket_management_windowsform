@@ -29,32 +29,72 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.addUserButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.roleTextBox = new System.Windows.Forms.TextBox();
-            this.salaryTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBoxLabel = new System.Windows.Forms.Label();
-            this.usernameTextBoxLabel = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.confiemPasswordTextBoxLabel = new System.Windows.Forms.Label();
-            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.roleTextBoxLabel = new System.Windows.Forms.Label();
-            this.salaryTextBoxLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PageHeader = new System.Windows.Forms.Label();
-            this.genderTextBoxLabel = new System.Windows.Forms.Label();
-            this.genderTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.addressTextBoxError = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.phoneTextBoxError = new System.Windows.Forms.Label();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.genderComboBoxError = new System.Windows.Forms.Label();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.salaryTextBoxError = new System.Windows.Forms.Label();
+            this.salaryTextBox = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.roleComboBoxError = new System.Windows.Forms.Label();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.confirmPasswordTextBoxError = new System.Windows.Forms.Label();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.passwordTextBoxError = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lastnameTextBoxError = new System.Windows.Forms.Label();
+            this.lastnameTextBox = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.firstnameTextBoxError = new System.Windows.Forms.Label();
+            this.firstnameTextBox = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.usernameTextBoxError = new System.Windows.Forms.Label();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.lastnameTextBoxLabel = new System.Windows.Forms.Label();
+            this.firstnameTextBoxLabel = new System.Windows.Forms.Label();
+            this.usernameTextBoxLabel = new System.Windows.Forms.Label();
             this.addressTextBoxLabel = new System.Windows.Forms.Label();
+            this.phoneTextBoxLabel = new System.Windows.Forms.Label();
+            this.genderComboBoxLabel = new System.Windows.Forms.Label();
+            this.salaryTextBoxLabel = new System.Windows.Forms.Label();
+            this.roleComboBoxLabel = new System.Windows.Forms.Label();
+            this.confiemPasswordTextBoxLabel = new System.Windows.Forms.Label();
+            this.passwordTextBoxLabel = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,9 +112,9 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             // 
             this.panel5.Controls.Add(this.addUserButton);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 620);
+            this.panel5.Location = new System.Drawing.Point(0, 630);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(750, 60);
+            this.panel5.Size = new System.Drawing.Size(750, 50);
             this.panel5.TabIndex = 3;
             // 
             // addUserButton
@@ -83,162 +123,20 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.addUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.addUserButton.Location = new System.Drawing.Point(560, 0);
             this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(190, 60);
+            this.addUserButton.Size = new System.Drawing.Size(190, 50);
             this.addUserButton.TabIndex = 8;
             this.addUserButton.Text = "Add";
             this.addUserButton.UseVisualStyleBackColor = true;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 100);
+            this.panel3.Location = new System.Drawing.Point(0, 70);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 580);
+            this.panel3.Size = new System.Drawing.Size(750, 610);
             this.panel3.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Controls.Add(this.addressTextBoxLabel, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.genderTextBoxLabel, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.roleTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.passwordTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.passwordTextBoxLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.usernameTextBoxLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.usernameTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.confiemPasswordTextBoxLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.confirmPasswordTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.roleTextBoxLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.salaryTextBoxLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.salaryTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.genderTextBox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.addressTextBox, 1, 6);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 50);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(703, 388);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // roleTextBox
-            // 
-            this.roleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.roleTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.roleTextBox.Location = new System.Drawing.Point(270, 176);
-            this.roleTextBox.Name = "roleTextBox";
-            this.roleTextBox.Size = new System.Drawing.Size(372, 32);
-            this.roleTextBox.TabIndex = 11;
-            // 
-            // salaryTextBox
-            // 
-            this.salaryTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.salaryTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.salaryTextBox.Location = new System.Drawing.Point(270, 231);
-            this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Size = new System.Drawing.Size(372, 32);
-            this.salaryTextBox.TabIndex = 10;
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBox.Location = new System.Drawing.Point(270, 66);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(372, 32);
-            this.passwordTextBox.TabIndex = 5;
-            // 
-            // passwordTextBoxLabel
-            // 
-            this.passwordTextBoxLabel.AccessibleName = "";
-            this.passwordTextBoxLabel.AutoSize = true;
-            this.passwordTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.passwordTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBoxLabel.Location = new System.Drawing.Point(3, 55);
-            this.passwordTextBoxLabel.Name = "passwordTextBoxLabel";
-            this.passwordTextBoxLabel.Size = new System.Drawing.Size(112, 55);
-            this.passwordTextBoxLabel.TabIndex = 3;
-            this.passwordTextBoxLabel.Text = "Password";
-            this.passwordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // usernameTextBoxLabel
-            // 
-            this.usernameTextBoxLabel.AccessibleName = "";
-            this.usernameTextBoxLabel.AutoSize = true;
-            this.usernameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.usernameTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.usernameTextBoxLabel.Location = new System.Drawing.Point(3, 0);
-            this.usernameTextBoxLabel.Name = "usernameTextBoxLabel";
-            this.usernameTextBoxLabel.Size = new System.Drawing.Size(117, 55);
-            this.usernameTextBoxLabel.TabIndex = 2;
-            this.usernameTextBoxLabel.Text = "Username";
-            this.usernameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernameTextBox.Location = new System.Drawing.Point(270, 11);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(372, 32);
-            this.usernameTextBox.TabIndex = 4;
-            // 
-            // confiemPasswordTextBoxLabel
-            // 
-            this.confiemPasswordTextBoxLabel.AccessibleName = "";
-            this.confiemPasswordTextBoxLabel.AutoSize = true;
-            this.confiemPasswordTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.confiemPasswordTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.confiemPasswordTextBoxLabel.Location = new System.Drawing.Point(3, 110);
-            this.confiemPasswordTextBoxLabel.Name = "confiemPasswordTextBoxLabel";
-            this.confiemPasswordTextBoxLabel.Size = new System.Drawing.Size(201, 55);
-            this.confiemPasswordTextBoxLabel.TabIndex = 6;
-            this.confiemPasswordTextBoxLabel.Text = "Confirm Password";
-            this.confiemPasswordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // confirmPasswordTextBox
-            // 
-            this.confirmPasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.confirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(270, 121);
-            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(372, 32);
-            this.confirmPasswordTextBox.TabIndex = 7;
-            // 
-            // roleTextBoxLabel
-            // 
-            this.roleTextBoxLabel.AccessibleName = "";
-            this.roleTextBoxLabel.AutoSize = true;
-            this.roleTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.roleTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.roleTextBoxLabel.Location = new System.Drawing.Point(3, 165);
-            this.roleTextBoxLabel.Name = "roleTextBoxLabel";
-            this.roleTextBoxLabel.Size = new System.Drawing.Size(57, 55);
-            this.roleTextBoxLabel.TabIndex = 8;
-            this.roleTextBoxLabel.Text = "Role";
-            this.roleTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // salaryTextBoxLabel
-            // 
-            this.salaryTextBoxLabel.AccessibleName = "";
-            this.salaryTextBoxLabel.AutoSize = true;
-            this.salaryTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.salaryTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.salaryTextBoxLabel.Location = new System.Drawing.Point(3, 220);
-            this.salaryTextBoxLabel.Name = "salaryTextBoxLabel";
-            this.salaryTextBoxLabel.Size = new System.Drawing.Size(77, 55);
-            this.salaryTextBoxLabel.TabIndex = 9;
-            this.salaryTextBoxLabel.Text = "Salary";
-            this.salaryTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -246,7 +144,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 100);
+            this.panel2.Size = new System.Drawing.Size(750, 70);
             this.panel2.TabIndex = 0;
             // 
             // PageHeader
@@ -255,56 +153,551 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.PageHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PageHeader.AutoSize = true;
             this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PageHeader.Location = new System.Drawing.Point(317, 35);
+            this.PageHeader.Location = new System.Drawing.Point(317, 20);
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.Size = new System.Drawing.Size(109, 30);
             this.PageHeader.TabIndex = 3;
             this.PageHeader.Text = "Add User";
             this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // genderTextBoxLabel
+            // tableLayoutPanel1
             // 
-            this.genderTextBoxLabel.AccessibleName = "";
-            this.genderTextBoxLabel.AutoSize = true;
-            this.genderTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.genderTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.genderTextBoxLabel.Location = new System.Drawing.Point(3, 275);
-            this.genderTextBoxLabel.Name = "genderTextBoxLabel";
-            this.genderTextBoxLabel.Size = new System.Drawing.Size(89, 55);
-            this.genderTextBoxLabel.TabIndex = 12;
-            this.genderTextBoxLabel.Text = "Gender";
-            this.genderTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lastnameTextBoxLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.firstnameTextBoxLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.usernameTextBoxLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.addressTextBoxLabel, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.phoneTextBoxLabel, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.genderComboBoxLabel, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.salaryTextBoxLabel, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.roleComboBoxLabel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.confiemPasswordTextBoxLabel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.passwordTextBoxLabel, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 554);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // genderTextBox
+            // panel10
             // 
-            this.genderTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.genderTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.genderTextBox.Location = new System.Drawing.Point(270, 286);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(372, 32);
-            this.genderTextBox.TabIndex = 13;
+            this.panel10.Controls.Add(this.addressTextBoxError);
+            this.panel10.Controls.Add(this.addressTextBox);
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(228, 453);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(519, 98);
+            this.panel10.TabIndex = 36;
+            // 
+            // addressTextBoxError
+            // 
+            this.addressTextBoxError.AccessibleName = "";
+            this.addressTextBoxError.AutoSize = true;
+            this.addressTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addressTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addressTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.addressTextBoxError.Location = new System.Drawing.Point(0, 68);
+            this.addressTextBoxError.Name = "addressTextBoxError";
+            this.addressTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.addressTextBoxError.TabIndex = 24;
+            this.addressTextBoxError.Text = "Username";
+            this.addressTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addressTextBox.Location = new System.Drawing.Point(270, 343);
+            this.addressTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addressTextBox.Location = new System.Drawing.Point(0, 0);
+            this.addressTextBox.MaxLength = 64;
+            this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(372, 32);
-            this.addressTextBox.TabIndex = 14;
+            this.addressTextBox.Size = new System.Drawing.Size(519, 68);
+            this.addressTextBox.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AccessibleName = "";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(0, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Username";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.phoneTextBoxError);
+            this.panel14.Controls.Add(this.phoneTextBox);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(228, 403);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(519, 44);
+            this.panel14.TabIndex = 35;
+            // 
+            // phoneTextBoxError
+            // 
+            this.phoneTextBoxError.AccessibleName = "";
+            this.phoneTextBoxError.AutoSize = true;
+            this.phoneTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.phoneTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phoneTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.phoneTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.phoneTextBoxError.Name = "phoneTextBoxError";
+            this.phoneTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.phoneTextBoxError.TabIndex = 22;
+            this.phoneTextBoxError.Text = "Username";
+            this.phoneTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phoneTextBox.Location = new System.Drawing.Point(0, 0);
+            this.phoneTextBox.MaxLength = 18;
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(519, 26);
+            this.phoneTextBox.TabIndex = 21;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.genderComboBoxError);
+            this.panel13.Controls.Add(this.genderComboBox);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(228, 353);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(519, 44);
+            this.panel13.TabIndex = 34;
+            // 
+            // genderComboBoxError
+            // 
+            this.genderComboBoxError.AccessibleName = "";
+            this.genderComboBoxError.AutoSize = true;
+            this.genderComboBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.genderComboBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.genderComboBoxError.ForeColor = System.Drawing.Color.Red;
+            this.genderComboBoxError.Location = new System.Drawing.Point(0, 28);
+            this.genderComboBoxError.Name = "genderComboBoxError";
+            this.genderComboBoxError.Size = new System.Drawing.Size(73, 17);
+            this.genderComboBoxError.TabIndex = 19;
+            this.genderComboBoxError.Text = "Username";
+            this.genderComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.genderComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.genderComboBox.Location = new System.Drawing.Point(0, 0);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(519, 28);
+            this.genderComboBox.TabIndex = 18;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.salaryTextBoxError);
+            this.panel12.Controls.Add(this.salaryTextBox);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(228, 303);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(519, 44);
+            this.panel12.TabIndex = 33;
+            // 
+            // salaryTextBoxError
+            // 
+            this.salaryTextBoxError.AccessibleName = "";
+            this.salaryTextBoxError.AutoSize = true;
+            this.salaryTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.salaryTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.salaryTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.salaryTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.salaryTextBoxError.Name = "salaryTextBoxError";
+            this.salaryTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.salaryTextBoxError.TabIndex = 12;
+            this.salaryTextBoxError.Text = "Username";
+            this.salaryTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // salaryTextBox
+            // 
+            this.salaryTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.salaryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.salaryTextBox.Location = new System.Drawing.Point(0, 0);
+            this.salaryTextBox.MaxLength = 32;
+            this.salaryTextBox.Name = "salaryTextBox";
+            this.salaryTextBox.Size = new System.Drawing.Size(519, 26);
+            this.salaryTextBox.TabIndex = 11;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.roleComboBoxError);
+            this.panel11.Controls.Add(this.roleComboBox);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(228, 253);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(519, 44);
+            this.panel11.TabIndex = 32;
+            // 
+            // roleComboBoxError
+            // 
+            this.roleComboBoxError.AccessibleName = "";
+            this.roleComboBoxError.AutoSize = true;
+            this.roleComboBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleComboBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.roleComboBoxError.ForeColor = System.Drawing.Color.Red;
+            this.roleComboBoxError.Location = new System.Drawing.Point(0, 28);
+            this.roleComboBoxError.Name = "roleComboBoxError";
+            this.roleComboBoxError.Size = new System.Drawing.Size(73, 17);
+            this.roleComboBoxError.TabIndex = 18;
+            this.roleComboBoxError.Text = "Username";
+            this.roleComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roleComboBox
+            // 
+            this.roleComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Items.AddRange(new object[] {
+            "Admin",
+            "Supervisor",
+            "Product Manager",
+            "Checkout"});
+            this.roleComboBox.Location = new System.Drawing.Point(0, 0);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(519, 28);
+            this.roleComboBox.TabIndex = 17;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.confirmPasswordTextBoxError);
+            this.panel9.Controls.Add(this.confirmPasswordTextBox);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(228, 203);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(519, 44);
+            this.panel9.TabIndex = 31;
+            // 
+            // confirmPasswordTextBoxError
+            // 
+            this.confirmPasswordTextBoxError.AccessibleName = "";
+            this.confirmPasswordTextBoxError.AutoSize = true;
+            this.confirmPasswordTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.confirmPasswordTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.confirmPasswordTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.confirmPasswordTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.confirmPasswordTextBoxError.Name = "confirmPasswordTextBoxError";
+            this.confirmPasswordTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.confirmPasswordTextBoxError.TabIndex = 9;
+            this.confirmPasswordTextBoxError.Text = "Username";
+            this.confirmPasswordTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // confirmPasswordTextBox
+            // 
+            this.confirmPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.confirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(0, 0);
+            this.confirmPasswordTextBox.MaxLength = 32;
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(519, 26);
+            this.confirmPasswordTextBox.TabIndex = 8;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.passwordTextBoxError);
+            this.panel8.Controls.Add(this.passwordTextBox);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(228, 153);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(519, 44);
+            this.panel8.TabIndex = 30;
+            // 
+            // passwordTextBoxError
+            // 
+            this.passwordTextBoxError.AccessibleName = "";
+            this.passwordTextBoxError.AutoSize = true;
+            this.passwordTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.passwordTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.passwordTextBoxError.Name = "passwordTextBoxError";
+            this.passwordTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.passwordTextBoxError.TabIndex = 7;
+            this.passwordTextBoxError.Text = "Username";
+            this.passwordTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordTextBox.Location = new System.Drawing.Point(0, 0);
+            this.passwordTextBox.MaxLength = 32;
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(519, 26);
+            this.passwordTextBox.TabIndex = 6;
+            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lastnameTextBoxError);
+            this.panel7.Controls.Add(this.lastnameTextBox);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(228, 103);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(519, 44);
+            this.panel7.TabIndex = 29;
+            // 
+            // lastnameTextBoxError
+            // 
+            this.lastnameTextBoxError.AccessibleName = "";
+            this.lastnameTextBoxError.AutoSize = true;
+            this.lastnameTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lastnameTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lastnameTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.lastnameTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.lastnameTextBoxError.Name = "lastnameTextBoxError";
+            this.lastnameTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.lastnameTextBoxError.TabIndex = 26;
+            this.lastnameTextBoxError.Text = "Username";
+            this.lastnameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lastnameTextBox
+            // 
+            this.lastnameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lastnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lastnameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.lastnameTextBox.MaxLength = 32;
+            this.lastnameTextBox.Name = "lastnameTextBox";
+            this.lastnameTextBox.Size = new System.Drawing.Size(519, 26);
+            this.lastnameTextBox.TabIndex = 25;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.firstnameTextBoxError);
+            this.panel6.Controls.Add(this.firstnameTextBox);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(228, 53);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(519, 44);
+            this.panel6.TabIndex = 28;
+            // 
+            // firstnameTextBoxError
+            // 
+            this.firstnameTextBoxError.AccessibleName = "";
+            this.firstnameTextBoxError.AutoSize = true;
+            this.firstnameTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.firstnameTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstnameTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.firstnameTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.firstnameTextBoxError.Name = "firstnameTextBoxError";
+            this.firstnameTextBoxError.Size = new System.Drawing.Size(73, 17);
+            this.firstnameTextBoxError.TabIndex = 6;
+            this.firstnameTextBoxError.Text = "Username";
+            this.firstnameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // firstnameTextBox
+            // 
+            this.firstnameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.firstnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstnameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.firstnameTextBox.MaxLength = 32;
+            this.firstnameTextBox.Name = "firstnameTextBox";
+            this.firstnameTextBox.Size = new System.Drawing.Size(519, 26);
+            this.firstnameTextBox.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.usernameTextBoxError);
+            this.panel4.Controls.Add(this.usernameTextBox);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(228, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(519, 44);
+            this.panel4.TabIndex = 27;
+            // 
+            // usernameTextBoxError
+            // 
+            this.usernameTextBoxError.AccessibleName = "";
+            this.usernameTextBoxError.AutoSize = true;
+            this.usernameTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.usernameTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.usernameTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.usernameTextBoxError.Name = "usernameTextBoxError";
+            this.usernameTextBoxError.Size = new System.Drawing.Size(81, 17);
+            this.usernameTextBoxError.TabIndex = 6;
+            this.usernameTextBoxError.Text = "Usernameg";
+            this.usernameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.usernameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.usernameTextBox.MaxLength = 32;
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(519, 26);
+            this.usernameTextBox.TabIndex = 4;
+            // 
+            // lastnameTextBoxLabel
+            // 
+            this.lastnameTextBoxLabel.AccessibleName = "";
+            this.lastnameTextBoxLabel.AutoSize = true;
+            this.lastnameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lastnameTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lastnameTextBoxLabel.Location = new System.Drawing.Point(3, 100);
+            this.lastnameTextBoxLabel.Name = "lastnameTextBoxLabel";
+            this.lastnameTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.lastnameTextBoxLabel.TabIndex = 3;
+            this.lastnameTextBoxLabel.Text = "Last Name";
+            this.lastnameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // firstnameTextBoxLabel
+            // 
+            this.firstnameTextBoxLabel.AccessibleName = "";
+            this.firstnameTextBoxLabel.AutoSize = true;
+            this.firstnameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.firstnameTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.firstnameTextBoxLabel.Location = new System.Drawing.Point(3, 50);
+            this.firstnameTextBoxLabel.Name = "firstnameTextBoxLabel";
+            this.firstnameTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.firstnameTextBoxLabel.TabIndex = 3;
+            this.firstnameTextBoxLabel.Text = "First Name";
+            this.firstnameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // usernameTextBoxLabel
+            // 
+            this.usernameTextBoxLabel.AccessibleName = "";
+            this.usernameTextBoxLabel.AutoSize = true;
+            this.usernameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.usernameTextBoxLabel.Location = new System.Drawing.Point(3, 0);
+            this.usernameTextBoxLabel.Name = "usernameTextBoxLabel";
+            this.usernameTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.usernameTextBoxLabel.TabIndex = 2;
+            this.usernameTextBoxLabel.Text = "Username";
+            this.usernameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addressTextBoxLabel
             // 
             this.addressTextBoxLabel.AccessibleName = "";
             this.addressTextBoxLabel.AutoSize = true;
-            this.addressTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.addressTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addressTextBoxLabel.Location = new System.Drawing.Point(3, 330);
+            this.addressTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addressTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addressTextBoxLabel.Location = new System.Drawing.Point(3, 450);
             this.addressTextBoxLabel.Name = "addressTextBoxLabel";
-            this.addressTextBoxLabel.Size = new System.Drawing.Size(97, 58);
-            this.addressTextBoxLabel.TabIndex = 15;
+            this.addressTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.addressTextBoxLabel.TabIndex = 23;
             this.addressTextBoxLabel.Text = "Address";
             this.addressTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // phoneTextBoxLabel
+            // 
+            this.phoneTextBoxLabel.AccessibleName = "";
+            this.phoneTextBoxLabel.AutoSize = true;
+            this.phoneTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.phoneTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.phoneTextBoxLabel.Location = new System.Drawing.Point(3, 400);
+            this.phoneTextBoxLabel.Name = "phoneTextBoxLabel";
+            this.phoneTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.phoneTextBoxLabel.TabIndex = 18;
+            this.phoneTextBoxLabel.Text = "Phone Number";
+            this.phoneTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // genderComboBoxLabel
+            // 
+            this.genderComboBoxLabel.AccessibleName = "";
+            this.genderComboBoxLabel.AutoSize = true;
+            this.genderComboBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.genderComboBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.genderComboBoxLabel.Location = new System.Drawing.Point(3, 350);
+            this.genderComboBoxLabel.Name = "genderComboBoxLabel";
+            this.genderComboBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.genderComboBoxLabel.TabIndex = 12;
+            this.genderComboBoxLabel.Text = "Gender";
+            this.genderComboBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // salaryTextBoxLabel
+            // 
+            this.salaryTextBoxLabel.AccessibleName = "";
+            this.salaryTextBoxLabel.AutoSize = true;
+            this.salaryTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.salaryTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.salaryTextBoxLabel.Location = new System.Drawing.Point(3, 300);
+            this.salaryTextBoxLabel.Name = "salaryTextBoxLabel";
+            this.salaryTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.salaryTextBoxLabel.TabIndex = 9;
+            this.salaryTextBoxLabel.Text = "Salary";
+            this.salaryTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roleComboBoxLabel
+            // 
+            this.roleComboBoxLabel.AccessibleName = "";
+            this.roleComboBoxLabel.AutoSize = true;
+            this.roleComboBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleComboBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.roleComboBoxLabel.Location = new System.Drawing.Point(3, 250);
+            this.roleComboBoxLabel.Name = "roleComboBoxLabel";
+            this.roleComboBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.roleComboBoxLabel.TabIndex = 8;
+            this.roleComboBoxLabel.Text = "Role";
+            this.roleComboBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // confiemPasswordTextBoxLabel
+            // 
+            this.confiemPasswordTextBoxLabel.AccessibleName = "";
+            this.confiemPasswordTextBoxLabel.AutoSize = true;
+            this.confiemPasswordTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.confiemPasswordTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.confiemPasswordTextBoxLabel.Location = new System.Drawing.Point(3, 200);
+            this.confiemPasswordTextBoxLabel.Name = "confiemPasswordTextBoxLabel";
+            this.confiemPasswordTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.confiemPasswordTextBoxLabel.TabIndex = 6;
+            this.confiemPasswordTextBoxLabel.Text = "Confirm Password";
+            this.confiemPasswordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // passwordTextBoxLabel
+            // 
+            this.passwordTextBoxLabel.AccessibleName = "";
+            this.passwordTextBoxLabel.AutoSize = true;
+            this.passwordTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.passwordTextBoxLabel.Location = new System.Drawing.Point(3, 150);
+            this.passwordTextBoxLabel.Name = "passwordTextBoxLabel";
+            this.passwordTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.passwordTextBoxLabel.TabIndex = 3;
+            this.passwordTextBoxLabel.Text = "Password";
+            this.passwordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // AdminPageAddUserPanel
             // 
@@ -318,10 +711,31 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,22 +746,50 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox roleTextBox;
-        private System.Windows.Forms.TextBox salaryTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label passwordTextBoxLabel;
-        private System.Windows.Forms.Label usernameTextBoxLabel;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.Label confiemPasswordTextBoxLabel;
-        private System.Windows.Forms.TextBox confirmPasswordTextBox;
-        private System.Windows.Forms.Label roleTextBoxLabel;
-        private System.Windows.Forms.Label salaryTextBoxLabel;
         private System.Windows.Forms.Button addUserButton;
         private System.Windows.Forms.Label PageHeader;
-        private System.Windows.Forms.Label genderTextBoxLabel;
-        private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.Label addressTextBoxLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label addressTextBoxError;
         private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label phoneTextBoxError;
+        private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label genderComboBoxError;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label salaryTextBoxError;
+        private System.Windows.Forms.TextBox salaryTextBox;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label roleComboBoxError;
+        private System.Windows.Forms.ComboBox roleComboBox;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label confirmPasswordTextBoxError;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label passwordTextBoxError;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lastnameTextBoxError;
+        private System.Windows.Forms.TextBox lastnameTextBox;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label firstnameTextBoxError;
+        private System.Windows.Forms.TextBox firstnameTextBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label usernameTextBoxError;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.Label lastnameTextBoxLabel;
+        private System.Windows.Forms.Label firstnameTextBoxLabel;
+        private System.Windows.Forms.Label usernameTextBoxLabel;
+        private System.Windows.Forms.Label addressTextBoxLabel;
+        private System.Windows.Forms.Label phoneTextBoxLabel;
+        private System.Windows.Forms.Label genderComboBoxLabel;
+        private System.Windows.Forms.Label salaryTextBoxLabel;
+        private System.Windows.Forms.Label roleComboBoxLabel;
+        private System.Windows.Forms.Label confiemPasswordTextBoxLabel;
+        private System.Windows.Forms.Label passwordTextBoxLabel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

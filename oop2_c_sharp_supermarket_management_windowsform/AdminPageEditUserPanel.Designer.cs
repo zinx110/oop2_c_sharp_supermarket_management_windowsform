@@ -31,6 +31,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.editUserButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,7 +51,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PageHeader = new System.Windows.Forms.Label();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,6 +78,17 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(750, 60);
             this.panel5.TabIndex = 3;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteButton.Location = new System.Drawing.Point(0, 0);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(190, 60);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // editUserButton
             // 
@@ -303,21 +314,10 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PageHeader.Location = new System.Drawing.Point(292, 33);
             this.PageHeader.Name = "PageHeader";
-            this.PageHeader.Size = new System.Drawing.Size(109, 30);
+            this.PageHeader.Size = new System.Drawing.Size(107, 30);
             this.PageHeader.TabIndex = 3;
-            this.PageHeader.Text = "Add User";
+            this.PageHeader.Text = "Edit User";
             this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteButton.Location = new System.Drawing.Point(0, 0);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(190, 60);
-            this.deleteButton.TabIndex = 9;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // AdminPageEditUserPanel
             // 

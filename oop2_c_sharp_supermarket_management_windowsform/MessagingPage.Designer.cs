@@ -1,7 +1,7 @@
 ﻿
 namespace oop2_c_sharp_supermarket_management_windowsform
 {
-    partial class HomePage
+    partial class MessagingPage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,32 +29,35 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // mainPanel
+            // label1
             // 
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1000, 700);
-            this.mainPanel.TabIndex = 9;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(252, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(226, 54);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Messaging";
             // 
-            // HomePage
+            // MessagingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 700);
-            this.Controls.Add(this.mainPanel);
+            this.ClientSize = new System.Drawing.Size(750, 680);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "HomePage";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin";
+            this.Name = "MessagingPage";
+            this.Text = "MessagingPage";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel mainPanel;
+
+        private System.Windows.Forms.Label label1;
     }
 }

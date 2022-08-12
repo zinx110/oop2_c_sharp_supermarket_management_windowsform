@@ -29,49 +29,193 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SidenavContainer = new System.Windows.Forms.Panel();
+            this.addUserButton = new System.Windows.Forms.Button();
+            this.editUserButton = new System.Windows.Forms.Button();
+            this.allUserButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pageRoleName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.SidenavContainer.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // panel1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.label1.Location = new System.Drawing.Point(246, 304);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 46);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Supervisor";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel1.BackColor = System.Drawing.Color.SlateGray;
+            this.panel1.Controls.Add(this.SidenavContainer);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 700);
+            this.panel1.TabIndex = 25;
+            // 
+            // SidenavContainer
+            // 
+            this.SidenavContainer.Controls.Add(this.addUserButton);
+            this.SidenavContainer.Controls.Add(this.editUserButton);
+            this.SidenavContainer.Controls.Add(this.allUserButton);
+            this.SidenavContainer.Controls.Add(this.logoutButton);
+            this.SidenavContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SidenavContainer.Location = new System.Drawing.Point(0, 80);
+            this.SidenavContainer.Name = "SidenavContainer";
+            this.SidenavContainer.Size = new System.Drawing.Size(250, 620);
+            this.SidenavContainer.TabIndex = 7;
+            // 
+            // addUserButton
+            // 
+            this.addUserButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.addUserButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addUserButton.Font = new System.Drawing.Font("Malgun Gothic Semilight", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addUserButton.Location = new System.Drawing.Point(0, 120);
+            this.addUserButton.Margin = new System.Windows.Forms.Padding(5);
+            this.addUserButton.Name = "addUserButton";
+            this.addUserButton.Size = new System.Drawing.Size(250, 60);
+            this.addUserButton.TabIndex = 10;
+            this.addUserButton.Text = "Add User";
+            this.addUserButton.UseVisualStyleBackColor = false;
+            // 
+            // editUserButton
+            // 
+            this.editUserButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.editUserButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.editUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editUserButton.Font = new System.Drawing.Font("Malgun Gothic Semilight", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.editUserButton.Location = new System.Drawing.Point(0, 60);
+            this.editUserButton.Margin = new System.Windows.Forms.Padding(5);
+            this.editUserButton.Name = "editUserButton";
+            this.editUserButton.Size = new System.Drawing.Size(250, 60);
+            this.editUserButton.TabIndex = 9;
+            this.editUserButton.Text = "Edit User";
+            this.editUserButton.UseVisualStyleBackColor = false;
+            // 
+            // allUserButton
+            // 
+            this.allUserButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.allUserButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.allUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allUserButton.Font = new System.Drawing.Font("Malgun Gothic Semilight", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.allUserButton.Location = new System.Drawing.Point(0, 0);
+            this.allUserButton.Margin = new System.Windows.Forms.Padding(5);
+            this.allUserButton.Name = "allUserButton";
+            this.allUserButton.Size = new System.Drawing.Size(250, 60);
+            this.allUserButton.TabIndex = 8;
+            this.allUserButton.Text = "All Users";
+            this.allUserButton.UseVisualStyleBackColor = false;
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.AutoSize = true;
+            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.logoutButton.ForeColor = System.Drawing.Color.Crimson;
+            this.logoutButton.Location = new System.Drawing.Point(0, 560);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(250, 60);
+            this.logoutButton.TabIndex = 7;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pageRoleName);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(250, 80);
+            this.panel3.TabIndex = 2;
+            // 
+            // pageRoleName
+            // 
+            this.pageRoleName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pageRoleName.AutoSize = true;
+            this.pageRoleName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.pageRoleName.ForeColor = System.Drawing.Color.Azure;
+            this.pageRoleName.Location = new System.Drawing.Point(58, 9);
+            this.pageRoleName.Name = "pageRoleName";
+            this.pageRoleName.Size = new System.Drawing.Size(155, 37);
+            this.pageRoleName.TabIndex = 2;
+            this.pageRoleName.Text = "Supervisor";
+            this.pageRoleName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mainPanel
             // 
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Location = new System.Drawing.Point(250, 20);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(750, 680);
-            this.mainPanel.TabIndex = 5;
+            this.mainPanel.TabIndex = 29;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.exitButton);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(250, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(750, 20);
+            this.panel4.TabIndex = 28;
+            // 
+            // exitButton
+            // 
+            this.exitButton.AutoSize = true;
+            this.exitButton.BackColor = System.Drawing.Color.Red;
+            this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.exitButton.ForeColor = System.Drawing.Color.DimGray;
+            this.exitButton.Location = new System.Drawing.Point(720, 0);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(30, 20);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "X";
+            this.exitButton.UseVisualStyleBackColor = false;
             // 
             // SupervisorPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 680);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SupervisorPage";
             this.Text = "EmployeeManager";
+            this.panel1.ResumeLayout(false);
+            this.SidenavContainer.ResumeLayout(false);
+            this.SidenavContainer.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel SidenavContainer;
+        private System.Windows.Forms.Button addUserButton;
+        private System.Windows.Forms.Button editUserButton;
+        private System.Windows.Forms.Button allUserButton;
+        private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label pageRoleName;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button exitButton;
     }
 }

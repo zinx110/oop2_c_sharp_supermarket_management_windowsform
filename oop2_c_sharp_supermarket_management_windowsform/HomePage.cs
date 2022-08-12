@@ -14,7 +14,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         
         
 
-        public Form sidenav ;
+
         public Form mainpage;
 
         public HomePage(string mode)
@@ -23,7 +23,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
           
             loadMainPanel(mode);
-            loadNavbar(new Sidenav(this));
+           
            
 
 
@@ -42,21 +42,21 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             switch (mode)
             {
                 case "admin":
-                    pageRoleName.Text = "Admin";
-                    loadMainForm(new AdminPage("all"));
+                   
+                    loadMainForm(new AdminPage());
                     break;
 
                 case "supervisor":
-                    pageRoleName.Text = "Supervisor";
-                    loadMainForm(new SupervisorPage("all"));
+                 
+                    loadMainForm(new SupervisorPage());
                     break;
                 case "inventorymanager":
-                    pageRoleName.Text = "Inventory";
-                    loadMainForm(new InventoryManager("all"));
+                 
+                    loadMainForm(new InventoryManager());
                     break;
                 case "checkout":
-                    pageRoleName.Text = "Checkout";
-                    loadMainForm(new CheckoutPage("all"));
+                   
+                    loadMainForm(new CheckoutPage());
                     break;
                 default:
                     MessageBox.Show("Invalid User Role", "Error");
@@ -89,22 +89,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-        public void loadNavbar(object Form)
-        {
-            if (this.SidenavContainer.Controls.Count > 0)
-            { this.SidenavContainer.Controls.RemoveAt(0); }
-
-           sidenav = Form as Form;
-            sidenav.TopLevel = false;
-            sidenav.Dock = DockStyle.Fill;
-            this.SidenavContainer.Controls.Add(sidenav);
-            this.SidenavContainer.Tag = sidenav;
-            
-            sidenav.Show();
-
-        }
-
-
+      
         
 
 
@@ -113,16 +98,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            LoginPage loginPage = new LoginPage();
-            loginPage.Show();
-            this.Hide();
-        }
+      
     }
 }
