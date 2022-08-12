@@ -34,8 +34,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel5 = new System.Windows.Forms.Panel();
             this.addUserButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.PageHeader = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.addressTextBoxError = new System.Windows.Forms.Label();
@@ -78,11 +76,20 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.roleComboBoxLabel = new System.Windows.Forms.Label();
             this.confiemPasswordTextBoxLabel = new System.Windows.Forms.Label();
             this.passwordTextBoxLabel = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PageHeader = new System.Windows.Forms.Label();
+            this.passwordErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.usernameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lastnameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.confirmpasswordErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.roleErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.salaryErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.genderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.phoneErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.firstnameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -94,7 +101,16 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confirmpasswordErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,28 +153,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(750, 610);
             this.panel3.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.PageHeader);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 70);
-            this.panel2.TabIndex = 0;
-            // 
-            // PageHeader
-            // 
-            this.PageHeader.AccessibleName = "";
-            this.PageHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PageHeader.AutoSize = true;
-            this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PageHeader.Location = new System.Drawing.Point(317, 20);
-            this.PageHeader.Name = "PageHeader";
-            this.PageHeader.Size = new System.Drawing.Size(109, 30);
-            this.PageHeader.TabIndex = 3;
-            this.PageHeader.Text = "Add User";
-            this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -237,6 +231,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(519, 68);
             this.addressTextBox.TabIndex = 23;
+            this.addressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.addressTextBox_Validating);
             // 
             // label5
             // 
@@ -283,6 +278,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(519, 26);
             this.phoneTextBox.TabIndex = 21;
+            this.phoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.phoneTextBox_Validating);
             // 
             // panel13
             // 
@@ -320,6 +316,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(519, 28);
             this.genderComboBox.TabIndex = 18;
+            this.genderComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.genderComboBox_Validating);
             // 
             // panel12
             // 
@@ -354,6 +351,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.salaryTextBox.Name = "salaryTextBox";
             this.salaryTextBox.Size = new System.Drawing.Size(519, 26);
             this.salaryTextBox.TabIndex = 11;
+            this.salaryTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.salaryTextBox_Validating);
             // 
             // panel11
             // 
@@ -393,6 +391,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.Size = new System.Drawing.Size(519, 28);
             this.roleComboBox.TabIndex = 17;
+            this.roleComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.roleComboBox_Validating);
             // 
             // panel9
             // 
@@ -427,6 +426,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(519, 26);
             this.confirmPasswordTextBox.TabIndex = 8;
+            this.confirmPasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.confirmPasswordTextBox_Validating);
             // 
             // panel8
             // 
@@ -496,6 +496,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.lastnameTextBox.Name = "lastnameTextBox";
             this.lastnameTextBox.Size = new System.Drawing.Size(519, 26);
             this.lastnameTextBox.TabIndex = 25;
+            this.lastnameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.lastnameTextBox_Validating);
             // 
             // panel6
             // 
@@ -530,6 +531,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.firstnameTextBox.Name = "firstnameTextBox";
             this.firstnameTextBox.Size = new System.Drawing.Size(519, 26);
             this.firstnameTextBox.TabIndex = 4;
+            this.firstnameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.firstnameTextBox_Validating);
             // 
             // panel4
             // 
@@ -564,6 +566,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(519, 26);
             this.usernameTextBox.TabIndex = 4;
+            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextBox_Validating);
             // 
             // lastnameTextBoxLabel
             // 
@@ -695,9 +698,64 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.passwordTextBoxLabel.Text = "Password";
             this.passwordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // errorProvider1
+            // panel2
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.panel2.Controls.Add(this.PageHeader);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(750, 70);
+            this.panel2.TabIndex = 0;
+            // 
+            // PageHeader
+            // 
+            this.PageHeader.AccessibleName = "";
+            this.PageHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PageHeader.AutoSize = true;
+            this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PageHeader.Location = new System.Drawing.Point(317, 20);
+            this.PageHeader.Name = "PageHeader";
+            this.PageHeader.Size = new System.Drawing.Size(109, 30);
+            this.PageHeader.TabIndex = 3;
+            this.PageHeader.Text = "Add User";
+            this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // passwordErrorProvider
+            // 
+            this.passwordErrorProvider.ContainerControl = this;
+            // 
+            // usernameErrorProvider
+            // 
+            this.usernameErrorProvider.ContainerControl = this;
+            // 
+            // lastnameErrorProvider
+            // 
+            this.lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            this.lastnameErrorProvider.ContainerControl = this;
+            // 
+            // confirmpasswordErrorProvider
+            // 
+            this.confirmpasswordErrorProvider.ContainerControl = this;
+            // 
+            // roleErrorProvider
+            // 
+            this.roleErrorProvider.ContainerControl = this;
+            // 
+            // salaryErrorProvider
+            // 
+            this.salaryErrorProvider.ContainerControl = this;
+            // 
+            // genderErrorProvider
+            // 
+            this.genderErrorProvider.ContainerControl = this;
+            // 
+            // phoneErrorProvider
+            // 
+            this.phoneErrorProvider.ContainerControl = this;
+            // 
+            // firstnameErrorProvider
+            // 
+            this.firstnameErrorProvider.ContainerControl = this;
             // 
             // AdminPageAddUserPanel
             // 
@@ -711,8 +769,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -735,7 +791,17 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confirmpasswordErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -790,6 +856,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.Label roleComboBoxLabel;
         private System.Windows.Forms.Label confiemPasswordTextBoxLabel;
         private System.Windows.Forms.Label passwordTextBoxLabel;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider passwordErrorProvider;
+        private System.Windows.Forms.ErrorProvider usernameErrorProvider;
+        private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        private System.Windows.Forms.ErrorProvider confirmpasswordErrorProvider;
+        private System.Windows.Forms.ErrorProvider roleErrorProvider;
+        private System.Windows.Forms.ErrorProvider salaryErrorProvider;
+        private System.Windows.Forms.ErrorProvider genderErrorProvider;
+        private System.Windows.Forms.ErrorProvider phoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
     }
 }
