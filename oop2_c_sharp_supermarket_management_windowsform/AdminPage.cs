@@ -10,7 +10,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 {
     public partial class AdminPage : Form
     {
-        public Form sidenav;
+
 
 
 
@@ -29,16 +29,16 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 case "all":
                    
-                    loadMainForm(new AdminPageAllUserPanel(this));
+                    loadMainForm(new AdminPageAllUserPanel(this, ""));
                     break;
 
                 case "edit":
 
-                    loadMainForm(new AdminPageEditUserPanel());
+                    loadMainForm(new AdminPageEditUserPanel(this , ""));
                     break;
                 case "add":
 
-                    loadMainForm(new AdminPageAddUserPanel());
+                    loadMainForm(new AdminPageAddUserPanel(this));
                     break;
                 case "message":
 
@@ -46,7 +46,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                     break;
 
                 default:
-                    loadMainForm(new AdminPageAllUserPanel());
+                    loadMainForm(new AdminPageAllUserPanel(this, ""));
                     break;
 
 
@@ -72,12 +72,17 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-        public void loadEditPageWithData(int id)
+        public void loadEditPageWithData(string id)
         {
-            loadMainForm(new AdminPageEditUserPanel(id));
+            loadMainForm(new AdminPageEditUserPanel(this, id));
         }
 
-      
+        public void loadAllPageWithData(string name)
+        {
+            loadMainForm(new AdminPageAllUserPanel(this, name));
+        }
+
+
 
 
 

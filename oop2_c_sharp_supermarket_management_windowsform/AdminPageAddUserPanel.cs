@@ -30,10 +30,11 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         SqlConnection con;
         SqlCommand cmd;
 
+        AdminPage parent;
 
 
 
-        public AdminPageAddUserPanel()
+        public AdminPageAddUserPanel(AdminPage parent)
         {
             InitializeComponent();
             roleComboBox.Items.Add("Admin");
@@ -43,11 +44,12 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             genderComboBox.Items.Add("Male");
             genderComboBox.Items.Add("Female");
             con = new SqlConnection(path);
+            this.parent = parent;
         }
 
 
 
- 
+
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
@@ -138,6 +140,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("New employee added", "Success");
+                parent.loadAllPageWithData(username);
                 clearVariables();
 
             }

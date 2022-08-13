@@ -62,7 +62,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.importUserButton = new System.Windows.Forms.Button();
             this.deleteUserButton = new System.Windows.Forms.Button();
-            this.EditUserButton = new System.Windows.Forms.Button();
+            this.updateUserButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -117,9 +117,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.confirmPasswordTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.confirmPasswordTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.confirmPasswordTextBoxError.Name = "confirmPasswordTextBoxError";
-            this.confirmPasswordTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.confirmPasswordTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.confirmPasswordTextBoxError.TabIndex = 9;
-            this.confirmPasswordTextBoxError.Text = "Username";
             this.confirmPasswordTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // passwordTextBoxError
@@ -131,9 +130,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.passwordTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.passwordTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.passwordTextBoxError.Name = "passwordTextBoxError";
-            this.passwordTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.passwordTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.passwordTextBoxError.TabIndex = 7;
-            this.passwordTextBoxError.Text = "Username";
             this.passwordTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // passwordTextBox
@@ -141,7 +139,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.passwordTextBox.Location = new System.Drawing.Point(0, 0);
-            this.passwordTextBox.MaxLength = 32;
+            this.passwordTextBox.MaxLength = 64;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(519, 24);
             this.passwordTextBox.TabIndex = 6;
@@ -166,9 +164,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.lastnameTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.lastnameTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.lastnameTextBoxError.Name = "lastnameTextBoxError";
-            this.lastnameTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.lastnameTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.lastnameTextBoxError.TabIndex = 26;
-            this.lastnameTextBoxError.Text = "Username";
             this.lastnameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lastnameTextBox
@@ -176,7 +173,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.lastnameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.lastnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lastnameTextBox.Location = new System.Drawing.Point(0, 0);
-            this.lastnameTextBox.MaxLength = 10;
+            this.lastnameTextBox.MaxLength = 18;
             this.lastnameTextBox.Name = "lastnameTextBox";
             this.lastnameTextBox.Size = new System.Drawing.Size(519, 24);
             this.lastnameTextBox.TabIndex = 25;
@@ -201,9 +198,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.firstnameTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.firstnameTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.firstnameTextBoxError.Name = "firstnameTextBoxError";
-            this.firstnameTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.firstnameTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.firstnameTextBoxError.TabIndex = 6;
-            this.firstnameTextBoxError.Text = "Username";
             this.firstnameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // firstnameTextBox
@@ -211,7 +207,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.firstnameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.firstnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.firstnameTextBox.Location = new System.Drawing.Point(0, 0);
-            this.firstnameTextBox.MaxLength = 10;
+            this.firstnameTextBox.MaxLength = 18;
             this.firstnameTextBox.Name = "firstnameTextBox";
             this.firstnameTextBox.Size = new System.Drawing.Size(519, 24);
             this.firstnameTextBox.TabIndex = 4;
@@ -236,9 +232,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.usernameTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.usernameTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.usernameTextBoxError.Name = "usernameTextBoxError";
-            this.usernameTextBoxError.Size = new System.Drawing.Size(72, 15);
+            this.usernameTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.usernameTextBoxError.TabIndex = 6;
-            this.usernameTextBoxError.Text = "Usernameg";
             this.usernameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usernameTextBox
@@ -246,7 +241,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.usernameTextBox.Location = new System.Drawing.Point(0, 0);
-            this.usernameTextBox.MaxLength = 10;
+            this.usernameTextBox.MaxLength = 18;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(519, 24);
             this.usernameTextBox.TabIndex = 4;
@@ -401,7 +396,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.confirmPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.confirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.confirmPasswordTextBox.Location = new System.Drawing.Point(0, 0);
-            this.confirmPasswordTextBox.MaxLength = 32;
+            this.confirmPasswordTextBox.MaxLength = 64;
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(519, 24);
             this.confirmPasswordTextBox.TabIndex = 8;
@@ -445,7 +440,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel5.Controls.Add(this.searchTextBox);
             this.panel5.Controls.Add(this.importUserButton);
             this.panel5.Controls.Add(this.deleteUserButton);
-            this.panel5.Controls.Add(this.EditUserButton);
+            this.panel5.Controls.Add(this.updateUserButton);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 620);
             this.panel5.Name = "panel5";
@@ -457,7 +452,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.searchTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchTextBox.Location = new System.Drawing.Point(0, 0);
-            this.searchTextBox.MaxLength = 64;
+            this.searchTextBox.MaxLength = 10;
             this.searchTextBox.Multiline = true;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(300, 60);
@@ -485,18 +480,19 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.deleteUserButton.TabIndex = 9;
             this.deleteUserButton.Text = "Delete";
             this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
-            // EditUserButton
+            // updateUserButton
             // 
-            this.EditUserButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EditUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EditUserButton.Location = new System.Drawing.Point(600, 0);
-            this.EditUserButton.Name = "EditUserButton";
-            this.EditUserButton.Size = new System.Drawing.Size(150, 60);
-            this.EditUserButton.TabIndex = 8;
-            this.EditUserButton.Text = "Edit";
-            this.EditUserButton.UseVisualStyleBackColor = true;
-            this.EditUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
+            this.updateUserButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.updateUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.updateUserButton.Location = new System.Drawing.Point(600, 0);
+            this.updateUserButton.Name = "updateUserButton";
+            this.updateUserButton.Size = new System.Drawing.Size(150, 60);
+            this.updateUserButton.TabIndex = 8;
+            this.updateUserButton.Text = "Update";
+            this.updateUserButton.UseVisualStyleBackColor = true;
+            this.updateUserButton.Click += new System.EventHandler(this.EditUserButton_Click);
             // 
             // panel3
             // 
@@ -593,9 +589,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.addressTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.addressTextBoxError.Location = new System.Drawing.Point(0, 47);
             this.addressTextBoxError.Name = "addressTextBoxError";
-            this.addressTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.addressTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.addressTextBoxError.TabIndex = 24;
-            this.addressTextBoxError.Text = "Username";
             this.addressTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addressTextBox
@@ -629,9 +624,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.phoneTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.phoneTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.phoneTextBoxError.Name = "phoneTextBoxError";
-            this.phoneTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.phoneTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.phoneTextBoxError.TabIndex = 22;
-            this.phoneTextBoxError.Text = "Username";
             this.phoneTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // phoneTextBox
@@ -639,7 +633,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.phoneTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phoneTextBox.Location = new System.Drawing.Point(0, 0);
-            this.phoneTextBox.MaxLength = 18;
+            this.phoneTextBox.MaxLength = 64;
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(519, 24);
             this.phoneTextBox.TabIndex = 21;
@@ -664,9 +658,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.genderComboBoxError.ForeColor = System.Drawing.Color.Red;
             this.genderComboBoxError.Location = new System.Drawing.Point(0, 26);
             this.genderComboBoxError.Name = "genderComboBoxError";
-            this.genderComboBoxError.Size = new System.Drawing.Size(65, 15);
+            this.genderComboBoxError.Size = new System.Drawing.Size(0, 15);
             this.genderComboBoxError.TabIndex = 19;
-            this.genderComboBoxError.Text = "Username";
             this.genderComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // genderComboBox
@@ -700,9 +693,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.salaryTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.salaryTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.salaryTextBoxError.Name = "salaryTextBoxError";
-            this.salaryTextBoxError.Size = new System.Drawing.Size(65, 15);
+            this.salaryTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.salaryTextBoxError.TabIndex = 12;
-            this.salaryTextBoxError.Text = "Username";
             this.salaryTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // salaryTextBox
@@ -710,7 +702,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.salaryTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.salaryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.salaryTextBox.Location = new System.Drawing.Point(0, 0);
-            this.salaryTextBox.MaxLength = 32;
+            this.salaryTextBox.MaxLength = 18;
             this.salaryTextBox.Name = "salaryTextBox";
             this.salaryTextBox.Size = new System.Drawing.Size(519, 24);
             this.salaryTextBox.TabIndex = 11;
@@ -735,9 +727,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.roleComboBoxError.ForeColor = System.Drawing.Color.Red;
             this.roleComboBoxError.Location = new System.Drawing.Point(0, 26);
             this.roleComboBoxError.Name = "roleComboBoxError";
-            this.roleComboBoxError.Size = new System.Drawing.Size(65, 15);
+            this.roleComboBoxError.Size = new System.Drawing.Size(0, 15);
             this.roleComboBoxError.TabIndex = 18;
-            this.roleComboBoxError.Text = "Username";
             this.roleComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // roleComboBox
@@ -794,9 +785,8 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.idTextBoxError.ForeColor = System.Drawing.Color.Red;
             this.idTextBoxError.Location = new System.Drawing.Point(0, 24);
             this.idTextBoxError.Name = "idTextBoxError";
-            this.idTextBoxError.Size = new System.Drawing.Size(72, 15);
+            this.idTextBoxError.Size = new System.Drawing.Size(0, 15);
             this.idTextBoxError.TabIndex = 6;
-            this.idTextBoxError.Text = "Usernameg";
             this.idTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // idTextBox
@@ -804,7 +794,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.idTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.idTextBox.Location = new System.Drawing.Point(0, 0);
-            this.idTextBox.MaxLength = 10;
+            this.idTextBox.MaxLength = 18;
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(519, 24);
             this.idTextBox.TabIndex = 4;
@@ -884,7 +874,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button EditUserButton;
+        private System.Windows.Forms.Button updateUserButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel10;

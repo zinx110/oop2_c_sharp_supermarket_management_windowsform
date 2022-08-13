@@ -12,7 +12,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
     {
        
 
-        public Form sidenav;
+
+
+
+
+
+
+
+
 
 
 
@@ -20,40 +27,40 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         public SupervisorPage()
         {
             InitializeComponent();
-            loadMainPanel("all");
+            //loadMainPanel("all");
         }
 
 
 
         public void loadMainPanel(string page)
         {
-            switch (page)
-            {
-                case "all":
+            //switch (page)
+            //{
+            //    case "all":
 
-                    loadMainForm(new AdminPageAllUserPanel());
-                    break;
+            //        loadMainForm(new AdminPageAllUserPanel(this, ""));
+            //        break;
 
-                case "edit":
+            //    case "edit":
 
-                    loadMainForm(new AdminPageEditUserPanel());
-                    break;
-                case "add":
+            //        loadMainForm(new AdminPageEditUserPanel(this, ""));
+            //        break;
+            //    case "add":
 
-                    loadMainForm(new AdminPageAddUserPanel());
-                    break;
-                case "message":
+            //        loadMainForm(new AdminPageAddUserPanel(this));
+            //        break;
+            //    case "message":
 
-                    loadMainForm(new MessagingPage());
-                    break;
+            //        loadMainForm(new MessagingPage());
+            //        break;
 
-                default:
-                    loadMainForm(new AdminPageAllUserPanel());
-                    break;
+            //    default:
+            //        loadMainForm(new AdminPageAllUserPanel(this, ""));
+            //        break;
 
 
 
-            }
+            //}
         }
 
         public void loadMainForm(object Form)
@@ -74,12 +81,16 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-
-        private void label1_Click(object sender, EventArgs e)
+        public void loadEditPageWithData(string id)
         {
-
-
+            // loadMainForm(new AdminPageEditUserPanel(this, id));
         }
+
+        public void loadAllPageWithData(string name)
+        {
+            // loadMainForm(new AdminPageAllUserPanel(this, name));
+        }
+
 
 
 
@@ -121,11 +132,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         {
             this.loadMainPanel("message");
         }
-
-
-
-
-
 
 
 

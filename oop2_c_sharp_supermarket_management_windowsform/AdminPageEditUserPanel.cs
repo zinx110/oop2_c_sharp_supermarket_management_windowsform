@@ -33,10 +33,13 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         SqlCommand cmd;
         DataTable dt;
         SqlDataAdapter adapter;
+        AdminPage parent;
 
 
+        
 
-        public AdminPageEditUserPanel()
+        
+        public AdminPageEditUserPanel(AdminPage parent, string id)
         {
             InitializeComponent();
             roleComboBox.Items.Add("Admin");
@@ -46,26 +49,13 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             genderComboBox.Items.Add("Male");
             genderComboBox.Items.Add("Female");
             con = new SqlConnection(path);
+            this.parent = parent;
 
-
-
-
-
+            if(id!="")
+            {
+                loadQuery(id);
+            }
         }
-
-        public AdminPageEditUserPanel(int id)
-        {
-            InitializeComponent();
-            roleComboBox.Items.Add("Admin");
-            roleComboBox.Items.Add("Supervisor");
-            roleComboBox.Items.Add("Checkout");
-            roleComboBox.Items.Add("ProductMng");
-            genderComboBox.Items.Add("Male");
-            genderComboBox.Items.Add("Female");
-            con = new SqlConnection(path);
-            loadQuery(id);
-        }
-
 
 
 
@@ -84,12 +74,33 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
+        private void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            if(idTextBox.Text=="" || idTextBox.Text == null )
+            {
+                MessageBox.Show("Need an ID to delete");
+            }
+            else if(!idTextBox.Text.All(c=>char.IsDigit(c)))
+            {
+                MessageBox.Show("Invalid ID, ID must be a number");
+            }
+            else
+            {
+                id = Convert.ToInt32(idTextBox.Text);
+                deleteFromDatabase();
+            }
+        }
+
+
+
+
+
         // Assign All values to variables
         private void assignVariables()
         {
 
 
-
+            
             username = usernameTextBox.Text;
             firstname = firstnameTextBox.Text;
             lastname = lastnameTextBox.Text;
@@ -112,7 +123,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             }
             try
             {
-                id = Convert.ToInt32(salaryTextBox.Text);
+                id = Convert.ToInt32(idTextBox.Text);
             }
             catch (FormatException)
             {
@@ -144,25 +155,55 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         }
 
-        private void writeInDatabase()
+
+        private void deleteFromDatabase()
         {
             try
             {
                 con.Open();
 
+                string sqlcommand = $"delete from Employees where  Id = {id}";
 
-
-                cmd = new SqlCommand($"insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')", con);
+                cmd = new SqlCommand(sqlcommand, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show("New employee added", "Success");
+                MessageBox.Show("employee Deleted", "Success");
+                parent.loadAllPageWithData("");
                 clearVariables();
 
             }
             catch (Exception ex)
             {
                 con.Close();
-                MessageBox.Show(ex.Message, ex.Message);
+                MessageBox.Show(ex.Message, "Write In Database Error");
+            }
+        }
+
+
+
+
+
+
+        private void writeInDatabase()
+        {
+            try
+            {
+                con.Open();
+                
+                string sqlcommand = $"update Employees set Username = '{username}',Firstname ='{firstname}', Lastname ='{lastname}',Password = '{password}', Role ='{role}', Gender ='{gender}', Salary='{salary}', Phone = '{phone}', Address='{address}' where  Id = {id}";
+
+                cmd = new SqlCommand(sqlcommand, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("employee Data Updated", "Success");
+                parent.loadAllPageWithData(username);
+                clearVariables();
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message, "Write In Database Error");
             }
         }
 
@@ -618,16 +659,16 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         // import user to edit 
 
-        private void loadQuery(int id)
+        private void loadQuery(string idd)
         {
             try
             {
-
+                int id = Convert.ToInt32(idd);
                 dt = new DataTable();
                 con.Open();
+                string sqlcommand = $"select * from Employees where Id = {id} ";
 
-
-                adapter = new SqlDataAdapter($"select * from Employees where Id = {id}", con);
+                adapter = new SqlDataAdapter(sqlcommand, con);
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
 
@@ -657,7 +698,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             }
             else
             {
-                loadQuery(Convert.ToInt32(searchTextBox.Text));
+                loadQuery(searchTextBox.Text);
             }
 
         }
@@ -677,11 +718,32 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 phoneTextBox.Text = dataGridView1.Rows[0].Cells["Phone"].Value.ToString();
                 addressTextBox.Text = dataGridView1.Rows[0].Cells["Address"].Value.ToString();
 
+                switch (dataGridView1.Rows[0].Cells["Role"].Value.ToString())
+                {
+                    case "Admin":
+                        roleComboBox.SelectedIndex = 0;
+                        break;
+                    case "Supervisor":
+                        roleComboBox.SelectedIndex = 1;
+                        break;
+                    case "Checkout":
+                        roleComboBox.SelectedIndex = 2;
+                        break;
+                    case "ProductMng":
+                        roleComboBox.SelectedIndex = 3;
+                        break;
+                }
+                switch (dataGridView1.Rows[0].Cells["Gender"].Value.ToString())
+                {
+                    case "Male":
+                        roleComboBox.SelectedIndex = 0;
+                        break;
+                    case "Female":
+                        roleComboBox.SelectedIndex = 1;
+                        break;
+                }
 
-
-                roleComboBox.SelectedIndex = roleComboBox.FindStringExact(dataGridView1.Rows[0].Cells["Role"].Value.ToString());
-                genderComboBox.SelectedItem = genderComboBox.Items.IndexOf(dataGridView1.Rows[0].Cells["Role"].Value.ToString());
-     
+                
 
             }
             catch (Exception ex)
@@ -693,5 +755,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 
 
         }
+
+        
     }
 }

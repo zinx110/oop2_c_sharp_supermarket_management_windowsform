@@ -27,19 +27,24 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         string queryString = "";
         int operationEmployeeId;
 
-        public AdminPageAllUserPanel()
-        {
-            InitializeComponent();
-            con = new SqlConnection(path);
-            loadAll();
-        }
 
-        public AdminPageAllUserPanel(AdminPage parent)
+
+        public AdminPageAllUserPanel(AdminPage parent, string name)
         {
             InitializeComponent();
             this.parent = parent;
             con = new SqlConnection(path);
-            loadAll();
+
+            if(name=="")
+            {
+                loadAll();
+            }
+            else
+            {
+                loadQuery(name, "Username");
+            }
+
+            
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             }
             else
             {
-                loadQuery();
+                loadQuery(queryTextBox.Text, "");
             }
         }
 
@@ -95,23 +100,31 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             queryString = "";
         }
 
-        private void loadQuery()
+        private void loadQuery(string queryString, string queryfield)
         {
             try
             {
-                queryString = queryTextBox.Text;
+      
                 int id = 0;
 
                 if(queryString.All(c=>char.IsDigit(c)))
                 {
                     id = Convert.ToInt32(queryString);
                 }
+                
+                   
+                string sqlQuery = $"select * from Employees where Id = {id} OR CONVERT(varchar(20),Salary) LIKE '%{queryString}%' OR  Salary = {id} OR Username LIKE '%{queryString}%' OR Lastname LIKE '%{queryString}%' OR Firstname LIKE '%{queryString}%' OR Role = '{queryString}' OR Gender = '{queryString}' OR Phone LIKE '{queryString}%' OR Address LIKE '%{queryString}%'";
+                if(queryfield != "")
+                {
+                    sqlQuery = $"select * from Employees where {queryfield} LIKE '%{queryString}%'";
+                }
+
 
                 dt = new DataTable();
                 con.Open();
 
 
-                adapter = new SqlDataAdapter($"select* from Employees where Id = {id} OR CONVERT(varchar(20),Salary) LIKE '%{queryString}%' OR  Salary = {id} OR Username LIKE '%{queryString}%' OR Lastname LIKE '%{queryString}%' OR Firstname LIKE '%{queryString}%' OR Role = '{queryString}' OR Gender = '{queryString}' OR Phone LIKE '{queryString}%' OR Address LIKE '%{queryString}%'", con);
+                adapter = new SqlDataAdapter(sqlQuery, con);
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
 
@@ -130,14 +143,69 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                DataGridViewRow row = this.dataGridView1.SelectedRows[0];
-                operationEmployeeId = Convert.ToInt32(row.Cells["Id"].Value);
+               
+                string EmployeeId = dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString();
 
-                parent.loadEditPageWithData(operationEmployeeId);
+                parent.loadEditPageWithData(EmployeeId);
+
+                
+
+
+            }
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                
+
+                string EmployeeId = dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString();
+
+                parent.loadEditPageWithData(EmployeeId);
 
 
 
 
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+
+
+                string EmployeeId = dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString();
+                deleteFromDatabase(EmployeeId);
+
+
+
+
+            }
+        }
+        private void deleteFromDatabase(string idd)
+        {
+
+            try
+            {
+                int id = Convert.ToInt32(idd);
+                con.Open();
+
+                string sqlcommand = $"delete from Employees where  Id = {id}";
+
+                cmd = new SqlCommand(sqlcommand, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("employee Deleted", "Success");
+
+                loadAll();
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message, "Write In Database Error");
             }
         }
     }
