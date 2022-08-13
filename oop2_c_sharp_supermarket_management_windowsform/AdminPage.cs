@@ -29,7 +29,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 case "all":
                    
-                    loadMainForm(new AdminPageAllUserPanel());
+                    loadMainForm(new AdminPageAllUserPanel(this));
                     break;
 
                 case "edit":
@@ -72,12 +72,11 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-
-        private void label1_Click(object sender, EventArgs e)
+        public void loadEditPageWithData(int id)
         {
-
-
+            loadMainForm(new AdminPageEditUserPanel(id));
         }
+
       
 
 

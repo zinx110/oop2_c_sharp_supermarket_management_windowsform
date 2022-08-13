@@ -5,14 +5,693 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace oop2_c_sharp_supermarket_management_windowsform
 {
     public partial class AdminPageEditUserPanel : Form
     {
+        int idForImport;
+        string role;
+        string gender;
+        string username;
+        string firstname;
+        string lastname;
+        string password;
+        string address;
+        double salary;
+        string phone;
+        int id;
+
+        bool valueAssigned = false;
+
+
+
+        string path = @"Data Source=DESKTOP-1S3SUP7\SQLEXPRESS;Initial Catalog=MainDatabase;User Id=one;Password=1234;Integrated Security=False";
+        SqlConnection con;
+        SqlCommand cmd;
+        DataTable dt;
+        SqlDataAdapter adapter;
+
+
+
         public AdminPageEditUserPanel()
         {
             InitializeComponent();
+            roleComboBox.Items.Add("Admin");
+            roleComboBox.Items.Add("Supervisor");
+            roleComboBox.Items.Add("Checkout");
+            roleComboBox.Items.Add("ProductMng");
+            genderComboBox.Items.Add("Male");
+            genderComboBox.Items.Add("Female");
+            con = new SqlConnection(path);
+
+
+
+
+
+        }
+
+        public AdminPageEditUserPanel(int id)
+        {
+            InitializeComponent();
+            roleComboBox.Items.Add("Admin");
+            roleComboBox.Items.Add("Supervisor");
+            roleComboBox.Items.Add("Checkout");
+            roleComboBox.Items.Add("ProductMng");
+            genderComboBox.Items.Add("Male");
+            genderComboBox.Items.Add("Female");
+            con = new SqlConnection(path);
+            loadQuery(id);
+        }
+
+
+
+
+
+        private void EditUserButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                assignVariables();
+
+                writeInDatabase();
+
+            }
+
+        }
+
+
+
+        // Assign All values to variables
+        private void assignVariables()
+        {
+
+
+
+            username = usernameTextBox.Text;
+            firstname = firstnameTextBox.Text;
+            lastname = lastnameTextBox.Text;
+            password = passwordTextBox.Text;
+            address = addressTextBox.Text;
+            role = roleComboBox.SelectedItem.ToString();
+            gender = genderComboBox.SelectedItem.ToString();
+            phone = phoneTextBox.Text;
+
+            try
+            {
+
+                salary = Convert.ToDouble(salaryTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                salaryTextBox.Focus();
+                errorProvider1.SetError(salaryTextBox, "Invalid salary!");
+                salaryTextBoxError.Text = "Invalid salary!";
+            }
+            try
+            {
+                id = Convert.ToInt32(salaryTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                idTextBox.Focus();
+                errorProvider1.SetError(idTextBox, "Invalid ID!");
+                idTextBoxError.Text = "Invalid ID!";
+            }
+
+
+
+
+        }
+
+
+
+        private void clearVariables()
+        {
+            idTextBox.Text = "";
+            usernameTextBox.Text = "";
+            firstnameTextBox.Text = "";
+            lastnameTextBox.Text = "";
+            passwordTextBox.Text = "";
+            addressTextBox.Text = "";
+            roleComboBox.Text = "";
+            genderComboBox.Text = "";
+            phoneTextBox.Text = "";
+
+            salaryTextBox.Text = "";
+
+        }
+
+        private void writeInDatabase()
+        {
+            try
+            {
+                con.Open();
+
+
+
+                cmd = new SqlCommand($"insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("New employee added", "Success");
+                clearVariables();
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message, ex.Message);
+            }
+        }
+
+
+        // Validations
+        private void usernameTextBox_Validating(object sender, CancelEventArgs e)
+
+        {
+            string usernameInValid = IsValidUsername(usernameTextBox.Text, "Username");
+
+            if (string.IsNullOrWhiteSpace(usernameTextBox.Text) || usernameInValid != "")
+            {
+
+                e.Cancel = true;
+                usernameTextBox.Focus();
+                errorProvider1.SetError(usernameTextBox, "username is required!");
+                if (usernameInValid != "")
+                {
+                    usernameTextBoxError.Text = usernameInValid;
+                }
+                else usernameTextBoxError.Text = "username is required!";
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(usernameTextBox, "");
+                usernameTextBoxError.Text = "";
+            }
+        }
+
+        private void firstnameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string usernameInValid = IsValidUsername(firstnameTextBox.Text, "First name");
+
+            if (string.IsNullOrWhiteSpace(firstnameTextBox.Text) || usernameInValid != "")
+            {
+
+                e.Cancel = true;
+                firstnameTextBox.Focus();
+                errorProvider1.SetError(firstnameTextBox, "First name is required!");
+
+                if (usernameInValid != "")
+                {
+                    firstnameTextBoxError.Text = usernameInValid;
+                }
+                else firstnameTextBoxError.Text = "First name is required!";
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(firstnameTextBox, "");
+                firstnameTextBoxError.Text = "";
+
+            }
+        }
+
+        private void lastnameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string usernameInValid = IsValidUsername(lastnameTextBox.Text, "First name");
+
+            if (string.IsNullOrWhiteSpace(lastnameTextBox.Text) || usernameInValid != "")
+            {
+
+                e.Cancel = true;
+                lastnameTextBox.Focus();
+                errorProvider1.SetError(lastnameTextBox, "First name is required!");
+
+                if (usernameInValid != "")
+                {
+                    lastnameTextBoxError.Text = usernameInValid;
+                }
+                else lastnameTextBoxError.Text = "First name is required!";
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(lastnameTextBox, "");
+                lastnameTextBoxError.Text = "";
+
+            }
+        }
+
+        private void passwordTextBox_Validating(object sender, CancelEventArgs e)
+
+        {
+            string passwordInValid = IsValidPassword(passwordTextBox.Text);
+
+            if (string.IsNullOrWhiteSpace(passwordTextBox.Text) || passwordInValid != "")
+            {
+
+                e.Cancel = true;
+                passwordTextBox.Focus();
+                errorProvider1.SetError(passwordTextBox, "Password is required!");
+                if (passwordInValid != "")
+                {
+                    passwordTextBoxError.Text = passwordInValid;
+                }
+                else passwordTextBoxError.Text = "Password is required!";
+
+            }
+
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(passwordTextBox, "");
+                passwordTextBoxError.Text = "";
+            }
+        }
+
+        private void confirmPasswordTextBox_Validating(object sender, CancelEventArgs e)
+        {
+
+
+            if (string.IsNullOrWhiteSpace(confirmPasswordTextBox.Text))
+            {
+
+                e.Cancel = true;
+                confirmPasswordTextBox.Focus();
+                errorProvider1.SetError(confirmPasswordTextBox, "Confirm the password");
+                confirmPasswordTextBoxError.Text = "Confirm the password!";
+
+
+            }
+            else if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+            {
+                e.Cancel = true;
+                confirmPasswordTextBox.Focus();
+                errorProvider1.SetError(confirmPasswordTextBox, "Password did not match");
+                confirmPasswordTextBoxError.Text = "Password did not match";
+            }
+
+            else
+            {
+
+
+                e.Cancel = false;
+                errorProvider1.SetError(confirmPasswordTextBox, "");
+                confirmPasswordTextBoxError.Text = "";
+            }
+
+        }
+
+        private void roleComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(roleComboBox.Text))
+            {
+                e.Cancel = true;
+                roleComboBox.Focus();
+                errorProvider1.SetError(roleComboBox, "Select a role");
+                roleComboBoxError.Text = "Select a role";
+            }
+
+            else
+            {
+
+
+                e.Cancel = false;
+                errorProvider1.SetError(roleComboBox, "");
+                roleComboBoxError.Text = "";
+            }
+
+        }
+
+        private void genderComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(genderComboBox.Text))
+            {
+                e.Cancel = true;
+                genderComboBox.Focus();
+                errorProvider1.SetError(genderComboBox, "Select a gender");
+                genderComboBoxError.Text = "Select a gender";
+            }
+
+            else
+            {
+
+
+                e.Cancel = false;
+                errorProvider1.SetError(genderComboBox, "");
+                genderComboBoxError.Text = "";
+            }
+
+        }
+
+        private void salaryTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string salaryInvalid = IsValidSalary(salaryTextBox.Text);
+
+            if (string.IsNullOrWhiteSpace(salaryTextBox.Text) || salaryInvalid != "")
+            {
+
+                e.Cancel = true;
+                salaryTextBox.Focus();
+                errorProvider1.SetError(salaryTextBox, "Salary is required!");
+
+                if (salaryInvalid != "")
+                {
+                    salaryTextBoxError.Text = salaryInvalid;
+                }
+                else salaryTextBoxError.Text = "Salary is required!";
+
+            }
+
+            else
+            {
+                try
+                {
+
+                    double sal = Convert.ToDouble(salaryTextBox.Text);
+                    e.Cancel = false;
+                    errorProvider1.SetError(salaryTextBox, "");
+                    salaryTextBoxError.Text = "";
+
+
+                }
+                catch (FormatException)
+                {
+                    e.Cancel = true;
+                    salaryTextBox.Focus();
+                    errorProvider1.SetError(salaryTextBox, "Invalid salary!");
+                    salaryTextBoxError.Text = "Invalid salary!";
+
+                }
+
+
+            }
+        }
+
+        private void phoneTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string phoneInvalid = IsValidPhone(phoneTextBox.Text);
+
+            if (string.IsNullOrWhiteSpace(phoneTextBox.Text) || phoneInvalid != "")
+            {
+
+                e.Cancel = true;
+                phoneTextBox.Focus();
+                errorProvider1.SetError(phoneTextBox, "Salary is required!");
+
+                if (phoneInvalid != "")
+                {
+                    phoneTextBoxError.Text = phoneInvalid;
+                }
+                else phoneTextBoxError.Text = "Salary is required!";
+
+            }
+
+            else
+            {
+
+                e.Cancel = false;
+                errorProvider1.SetError(phoneTextBox, "");
+                phoneTextBoxError.Text = "";
+
+
+
+
+
+            }
+
+        }
+
+        private void addressTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(addressTextBox.Text))
+            {
+                e.Cancel = true;
+                addressTextBox.Focus();
+                errorProvider1.SetError(addressTextBox, "Address is required");
+                addressTextBoxError.Text = "Address is required";
+            }
+
+            else
+            {
+
+
+                e.Cancel = false;
+                errorProvider1.SetError(addressTextBox, "");
+                addressTextBoxError.Text = "";
+            }
+        }
+
+
+
+        private void idTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string salaryInvalid = IsValidSalary(idTextBox.Text);
+
+            if (string.IsNullOrWhiteSpace(idTextBox.Text) || salaryInvalid != "")
+            {
+
+                e.Cancel = true;
+                idTextBox.Focus();
+                errorProvider1.SetError(idTextBox, "ID is required!");
+
+                if (salaryInvalid != "")
+                {
+                    idTextBoxError.Text = "Invalid ID";
+                }
+                else idTextBoxError.Text = "ID is required!";
+
+            }
+
+            else
+            {
+                try
+                {
+
+                    double sal = Convert.ToInt32(idTextBox.Text);
+                    e.Cancel = false;
+                    errorProvider1.SetError(idTextBox, "");
+                    idTextBoxError.Text = "";
+
+
+                }
+                catch (FormatException)
+                {
+                    e.Cancel = true;
+                    idTextBox.Focus();
+                    errorProvider1.SetError(idTextBox, "Invalid ID!");
+                    idTextBoxError.Text = "Invalid ID!";
+
+                }
+
+
+            }
+        }
+
+
+        //helper functions for validation
+        private string IsValidPassword(string password)
+        {
+
+            if (password == "" || password == null || password.Length == 0)
+            {
+                return "Password is required";
+            }
+            if (password.Length < 8)
+            {
+                return "Password should be at least 8 characters";
+            }
+            if (!password.Any(char.IsUpper))
+            {
+                return "Password should have at least 1 upper case character";
+            }
+            if (!password.Any(char.IsDigit))
+            {
+                return "Password should have at least 1 number";
+            }
+
+
+            return "";
+
+        }
+
+        private string IsValidUsername(string name, string nameType)
+        {
+
+            if (name == "" || name == null || name.Length == 0)
+            {
+                return nameType + " is required";
+            }
+            if (name.Length < 3)
+            {
+                return nameType + " cannot be so short";
+            }
+            if (name.Any(char.IsSymbol))
+            {
+                return nameType + " cannot have a symbol in it";
+            }
+            if (name.Any(char.IsDigit))
+            {
+                return nameType + " cannot contain number";
+            }
+            if (name.Any(char.IsPunctuation))
+            {
+                return nameType + " cannot have a symbol in it";
+            }
+
+            return "";
+
+        }
+
+        private string IsValidSalary(string salary)
+        {
+
+            if (salary == "" || salary == null || salary.Length == 0)
+            {
+                return "Salary is required";
+            }
+
+
+            if (!salary.Any(char.IsDigit))
+            {
+                return "Invalid Salary. Salary must be a number";
+            }
+
+            try
+            {
+
+                double sal = Convert.ToDouble(salary);
+                return "";
+
+            }
+            catch (FormatException)
+            {
+                return "Invalid Salary. Salary must be a number";
+            }
+
+
+
+
+        }
+
+        private string IsValidPhone(string phone)
+        {
+
+            if (phone == "" || phone == null || phone.Length == 0)
+            {
+                return "Phone number is required";
+            }
+
+
+            if (phone.Any(c => (!char.IsDigit(c) && c != '+' && c != '-')))
+            {
+
+                return "Invalid phone number.";
+            }
+
+
+            return "";
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+        // import user to edit 
+
+        private void loadQuery(int id)
+        {
+            try
+            {
+
+                dt = new DataTable();
+                con.Open();
+
+
+                adapter = new SqlDataAdapter($"select * from Employees where Id = {id}", con);
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message, "Import Error");
+            }
+
+        }
+
+        private void importUserButton_Click(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text == "")
+            {
+                searchTextBox.Focus();
+                MessageBox.Show("Enter an ID first To import User for Edit");
+
+            }
+            else if (!searchTextBox.Text.All(c => char.IsDigit(c)))
+            {
+                searchTextBox.Focus();
+                MessageBox.Show("Invalid ID for user");
+            }
+            else
+            {
+                loadQuery(Convert.ToInt32(searchTextBox.Text));
+            }
+
+        }
+
+        private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                idTextBox.Text = dataGridView1.Rows[0].Cells["Id"].Value.ToString();
+                usernameTextBox.Text = dataGridView1.Rows[0].Cells["Username"].Value.ToString();
+                firstnameTextBox.Text = dataGridView1.Rows[0].Cells["Firstname"].Value.ToString();
+                lastnameTextBox.Text = dataGridView1.Rows[0].Cells["Lastname"].Value.ToString();
+                passwordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString();
+                confirmPasswordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString();
+                salaryTextBox.Text = dataGridView1.Rows[0].Cells["Salary"].Value.ToString();
+                phoneTextBox.Text = dataGridView1.Rows[0].Cells["Phone"].Value.ToString();
+                addressTextBox.Text = dataGridView1.Rows[0].Cells["Address"].Value.ToString();
+
+
+
+                roleComboBox.SelectedIndex = roleComboBox.FindStringExact(dataGridView1.Rows[0].Cells["Role"].Value.ToString());
+                genderComboBox.SelectedItem = genderComboBox.Items.IndexOf(dataGridView1.Rows[0].Cells["Role"].Value.ToString());
+     
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Data Assign Error");
+            }
+            // Iterate through the rows, skipping the Starting Balance row.
+            
+                
+
         }
     }
 }

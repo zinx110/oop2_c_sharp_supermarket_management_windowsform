@@ -30,16 +30,16 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.showAllButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PageHeader = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.queryTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,6 +59,17 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel1.Size = new System.Drawing.Size(750, 60);
             this.panel1.TabIndex = 5;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteButton.Location = new System.Drawing.Point(380, 0);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(180, 60);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
             // editButton
             // 
             this.editButton.Dock = System.Windows.Forms.DockStyle.Left;
@@ -69,6 +80,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.editButton.TabIndex = 8;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // showAllButton
             // 
@@ -80,6 +92,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.showAllButton.TabIndex = 7;
             this.showAllButton.Text = "Show All";
             this.showAllButton.UseVisualStyleBackColor = true;
+            this.showAllButton.Click += new System.EventHandler(this.showAllButton_Click);
             // 
             // searchButton
             // 
@@ -91,6 +104,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.searchButton.TabIndex = 6;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // panel2
             // 
@@ -116,12 +130,20 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.queryTextBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 520);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(750, 100);
             this.panel3.TabIndex = 7;
+            // 
+            // queryTextBox
+            // 
+            this.queryTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.queryTextBox.Location = new System.Drawing.Point(204, 27);
+            this.queryTextBox.Name = "queryTextBox";
+            this.queryTextBox.Size = new System.Drawing.Size(350, 32);
+            this.queryTextBox.TabIndex = 0;
             // 
             // panel4
             // 
@@ -140,27 +162,9 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(750, 420);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(204, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 32);
-            this.textBox1.TabIndex = 0;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteButton.Location = new System.Drawing.Point(380, 0);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(180, 60);
-            this.deleteButton.TabIndex = 9;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // AdminPageAllUserPanel
             // 
@@ -194,7 +198,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label PageHeader;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox queryTextBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button deleteButton;

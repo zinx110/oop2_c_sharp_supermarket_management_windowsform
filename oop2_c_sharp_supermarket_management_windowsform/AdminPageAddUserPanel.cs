@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace oop2_c_sharp_supermarket_management_windowsform
 {
@@ -17,17 +18,31 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         string firstname;
         string lastname;
         string password;
-        string confirmPassword;
         string address;
         double salary;
-        int phone;
-        
+        string phone;
+
+        bool valueAssigned = false;
+
+
+
+        string path = @"Data Source=DESKTOP-1S3SUP7\SQLEXPRESS;Initial Catalog=MainDatabase;User Id=one;Password=1234;Integrated Security=False";
+        SqlConnection con;
+        SqlCommand cmd;
+
 
 
 
         public AdminPageAddUserPanel()
         {
             InitializeComponent();
+            roleComboBox.Items.Add("Admin");
+            roleComboBox.Items.Add("Supervisor");
+            roleComboBox.Items.Add("Checkout");
+            roleComboBox.Items.Add("ProductMng");
+            genderComboBox.Items.Add("Male");
+            genderComboBox.Items.Add("Female");
+            con = new SqlConnection(path);
         }
 
 
@@ -36,22 +51,35 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                assignVariables();
 
-            assignVariables();
-            MessageBox.Show("done");
+                writeInDatabase();
+
+            }
 
 
 
+
+
+            
+            
+
+
+            
 
 
 
 
         }
 
+
+
+        // Assign All values to variables
         private void assignVariables()
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
+            
 
 
                 username = usernameTextBox.Text;
@@ -59,9 +87,9 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 lastname = lastnameTextBox.Text;
                 password = passwordTextBox.Text;
                 address = addressTextBox.Text;
-                role = roleComboBox.Text;
-                gender = genderComboBox.Text;
-
+                role = roleComboBox.SelectedItem.ToString();
+                gender = genderComboBox.SelectedItem.ToString();
+                phone = phoneTextBox.Text;
 
                 try
                 {
@@ -71,38 +99,68 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 catch (FormatException)
                 {
                     salaryTextBox.Focus();
-                    usernameErrorProvider.SetError(salaryTextBox, "Invalid salary!");
+                    errorProvider1.SetError(salaryTextBox, "Invalid salary!");
                     salaryTextBoxError.Text = "Invalid salary!";
                 }
-                try
-                {
-
-                    salary = Convert.ToInt32(salaryTextBox.Text);
-                }
-                catch (FormatException)
-                {
-                    salaryTextBox.Focus();
-                    usernameErrorProvider.SetError(salaryTextBox, "Invalid salary!");
-                    salaryTextBoxError.Text = "Invalid salary!";
-                }
+                
 
 
 
+            
+        }
+
+
+
+        private void clearVariables()
+        {
+            usernameTextBox.Text="";
+            firstnameTextBox.Text = "";
+            lastnameTextBox.Text = "";
+            passwordTextBox.Text = "";
+            addressTextBox.Text = "";
+            roleComboBox.Text = "";
+            genderComboBox.Text = "";
+            phoneTextBox.Text = "";
+
+            salaryTextBox.Text = "";
+
+        }
+
+        private void writeInDatabase()
+        {
+            try
+            {
+                con.Open();
+
+
+
+                cmd = new SqlCommand($"insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("New employee added", "Success");
+                clearVariables();
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message, ex.Message);
             }
         }
 
 
+        // Validations
         private void usernameTextBox_Validating(object sender, CancelEventArgs e)
 
         {
-            string usernameInValid = AddUserValidationClass.IsValidUsername(usernameTextBox.Text, "Username");
+            string usernameInValid = IsValidUsername(usernameTextBox.Text, "Username");
 
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) || usernameInValid != "")
             {
 
                 e.Cancel = true;
                 usernameTextBox.Focus();
-                usernameErrorProvider.SetError(usernameTextBox, "username is required!");
+                errorProvider1.SetError(usernameTextBox, "username is required!");
                 if (usernameInValid != "")
                 {
                     usernameTextBoxError.Text = usernameInValid;
@@ -114,21 +172,21 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             else
             {
                 e.Cancel = false;
-                usernameErrorProvider.SetError(usernameTextBox, "");
+                errorProvider1.SetError(usernameTextBox, "");
                 usernameTextBoxError.Text = "";
             }
         }
 
         private void firstnameTextBox_Validating(object sender, CancelEventArgs e)
         {
-            string usernameInValid = AddUserValidationClass.IsValidUsername(firstnameTextBox.Text, "First name");
+            string usernameInValid = IsValidUsername(firstnameTextBox.Text, "First name");
 
             if (string.IsNullOrWhiteSpace(firstnameTextBox.Text) || usernameInValid != "")
             {
 
                 e.Cancel = true;
                 firstnameTextBox.Focus();
-                usernameErrorProvider.SetError(firstnameTextBox, "First name is required!");
+                errorProvider1.SetError(firstnameTextBox, "First name is required!");
 
                 if (usernameInValid != "")
                 {
@@ -141,7 +199,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             else
             {
                 e.Cancel = false;
-                usernameErrorProvider.SetError(firstnameTextBox, "");
+                errorProvider1.SetError(firstnameTextBox, "");
                 firstnameTextBoxError.Text = "";
 
             }
@@ -149,14 +207,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         private void lastnameTextBox_Validating(object sender, CancelEventArgs e)
         {
-            string usernameInValid = AddUserValidationClass.IsValidUsername(lastnameTextBox.Text, "First name");
+            string usernameInValid = IsValidUsername(lastnameTextBox.Text, "First name");
 
             if (string.IsNullOrWhiteSpace(lastnameTextBox.Text) || usernameInValid != "")
             {
 
                 e.Cancel = true;
                 lastnameTextBox.Focus();
-                usernameErrorProvider.SetError(lastnameTextBox, "First name is required!");
+                errorProvider1.SetError(lastnameTextBox, "First name is required!");
 
                 if (usernameInValid != "")
                 {
@@ -169,7 +227,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             else
             {
                 e.Cancel = false;
-                usernameErrorProvider.SetError(lastnameTextBox, "");
+                errorProvider1.SetError(lastnameTextBox, "");
                 lastnameTextBoxError.Text = "";
 
             }
@@ -178,14 +236,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private void passwordTextBox_Validating(object sender, CancelEventArgs e)
 
         {
-            string passwordInValid = AddUserValidationClass.IsValidPassword(passwordTextBox.Text);
+            string passwordInValid =IsValidPassword(passwordTextBox.Text);
 
             if (string.IsNullOrWhiteSpace(passwordTextBox.Text) || passwordInValid != "")
             {
 
                 e.Cancel = true;
                 passwordTextBox.Focus();
-                usernameErrorProvider.SetError(passwordTextBox, "Password is required!");
+                errorProvider1.SetError(passwordTextBox, "Password is required!");
                 if(passwordInValid != "")
                 {
                     passwordTextBoxError.Text = passwordInValid;
@@ -197,7 +255,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             else
             {
                 e.Cancel = false;
-                usernameErrorProvider.SetError(passwordTextBox, "");
+                errorProvider1.SetError(passwordTextBox, "");
                 passwordTextBoxError.Text = "";
             }
         }
@@ -211,7 +269,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
                 e.Cancel = true;
                 confirmPasswordTextBox.Focus();
-                usernameErrorProvider.SetError(confirmPasswordTextBox, "Confirm the password");
+                errorProvider1.SetError(confirmPasswordTextBox, "Confirm the password");
                 confirmPasswordTextBoxError.Text = "Confirm the password!";
 
 
@@ -220,7 +278,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 e.Cancel = true;
                 confirmPasswordTextBox.Focus();
-                usernameErrorProvider.SetError(confirmPasswordTextBox, "Password did not match");
+                errorProvider1.SetError(confirmPasswordTextBox, "Password did not match");
                 confirmPasswordTextBoxError.Text = "Password did not match";
             }
 
@@ -229,7 +287,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
                 e.Cancel = false;
-                usernameErrorProvider.SetError(confirmPasswordTextBox, "");
+                errorProvider1.SetError(confirmPasswordTextBox, "");
                 confirmPasswordTextBoxError.Text = "";
             }
 
@@ -241,7 +299,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 e.Cancel = true;
                 roleComboBox.Focus();
-                usernameErrorProvider.SetError(roleComboBox, "Select a role");
+                errorProvider1.SetError(roleComboBox, "Select a role");
                 roleComboBoxError.Text = "Select a role";
             }
 
@@ -250,7 +308,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
                 e.Cancel = false;
-                usernameErrorProvider.SetError(roleComboBox, "");
+                errorProvider1.SetError(roleComboBox, "");
                 roleComboBoxError.Text = "";
             }
 
@@ -262,7 +320,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 e.Cancel = true;
                 genderComboBox.Focus();
-                usernameErrorProvider.SetError(genderComboBox, "Select a gender");
+                errorProvider1.SetError(genderComboBox, "Select a gender");
                 genderComboBoxError.Text = "Select a gender";
             }
 
@@ -271,7 +329,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
                 e.Cancel = false;
-                usernameErrorProvider.SetError(genderComboBox, "");
+                errorProvider1.SetError(genderComboBox, "");
                 genderComboBoxError.Text = "";
             }
 
@@ -279,14 +337,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         private void salaryTextBox_Validating(object sender, CancelEventArgs e)
         {
-            string salaryInvalid = AddUserValidationClass.IsValidSalary(salaryTextBox.Text);
+            string salaryInvalid = IsValidSalary(salaryTextBox.Text);
 
             if (string.IsNullOrWhiteSpace(salaryTextBox.Text) || salaryInvalid != "")
             {
 
                 e.Cancel = true;
                 salaryTextBox.Focus();
-                usernameErrorProvider.SetError(salaryTextBox, "Salary is required!");
+                errorProvider1.SetError(salaryTextBox, "Salary is required!");
 
                 if (salaryInvalid != "")
                 {
@@ -303,7 +361,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
                     double sal = Convert.ToDouble(salaryTextBox.Text);
                     e.Cancel = false;
-                    usernameErrorProvider.SetError(salaryTextBox, "");
+                    errorProvider1.SetError(salaryTextBox, "");
                     salaryTextBoxError.Text = "";
 
 
@@ -312,7 +370,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
                 {
                     e.Cancel = true;
                     salaryTextBox.Focus();
-                    usernameErrorProvider.SetError(salaryTextBox, "Invalid salary!");
+                    errorProvider1.SetError(salaryTextBox, "Invalid salary!");
                     salaryTextBoxError.Text = "Invalid salary!";
 
                 }
@@ -323,14 +381,14 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
         private void phoneTextBox_Validating(object sender, CancelEventArgs e)
         {
-            string phoneInvalid = AddUserValidationClass.IsValidPhone(phoneTextBox.Text);
+            string phoneInvalid = IsValidPhone(phoneTextBox.Text);
 
             if (string.IsNullOrWhiteSpace(phoneTextBox.Text) || phoneInvalid != "")
             {
 
                 e.Cancel = true;
                 phoneTextBox.Focus();
-                usernameErrorProvider.SetError(phoneTextBox, "Salary is required!");
+                errorProvider1.SetError(phoneTextBox, "Salary is required!");
 
                 if (phoneInvalid != "")
                 {
@@ -342,24 +400,13 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
             else
             {
-                try
-                {
-
-                    double phn = Convert.ToInt32(phoneTextBox.Text);
+                
                     e.Cancel = false;
-                    usernameErrorProvider.SetError(phoneTextBox, "");
+                    errorProvider1.SetError(phoneTextBox, "");
                     phoneTextBoxError.Text = "";
 
 
-                }
-                catch (FormatException)
-                {
-                    e.Cancel = true;
-                    phoneTextBox.Focus();
-                    usernameErrorProvider.SetError(phoneTextBox, "Invalid phone number!");
-                    phoneTextBoxError.Text = "Invalid phone number!";
-
-                }
+               
 
 
             }
@@ -372,7 +419,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 e.Cancel = true;
                 addressTextBox.Focus();
-                usernameErrorProvider.SetError(addressTextBox, "Address is required");
+                errorProvider1.SetError(addressTextBox, "Address is required");
                 addressTextBoxError.Text = "Address is required";
             }
 
@@ -381,9 +428,123 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
                 e.Cancel = false;
-                usernameErrorProvider.SetError(addressTextBox, "");
+                errorProvider1.SetError(addressTextBox, "");
                 addressTextBoxError.Text = "";
             }
         }
+
+
+
+        //helper functions for validation
+        private string IsValidPassword(string password)
+        {
+
+            if (password == "" || password == null || password.Length == 0)
+            {
+                return "Password is required";
+            }
+            if (password.Length < 8)
+            {
+                return "Password should be at least 8 characters";
+            }
+            if (!password.Any(char.IsUpper))
+            {
+                return "Password should have at least 1 upper case character";
+            }
+            if (!password.Any(char.IsDigit))
+            {
+                return "Password should have at least 1 number";
+            }
+
+
+            return "";
+
+        }
+
+        private string IsValidUsername(string name, string nameType)
+        {
+
+            if (name == "" || name == null || name.Length == 0)
+            {
+                return nameType + " is required";
+            }
+            if (name.Length < 3)
+            {
+                return nameType + " cannot be so short";
+            }
+            if (name.Any(char.IsSymbol))
+            {
+                return nameType + " cannot have a symbol in it";
+            }
+            if (name.Any(char.IsDigit))
+            {
+                return nameType + " cannot contain number";
+            }
+            if (name.Any(char.IsPunctuation))
+            {
+                return nameType + " cannot have a symbol in it";
+            }
+
+            return "";
+
+        }
+
+        private string IsValidSalary(string salary)
+        {
+
+            if (salary == "" || salary == null || salary.Length == 0)
+            {
+                return "Salary is required";
+            }
+
+
+            if (!salary.Any(char.IsDigit))
+            {
+                return "Invalid Salary. Salary must be a number";
+            }
+
+            try
+            {
+
+                double sal = Convert.ToDouble(salary);
+                return "";
+
+            }
+            catch (FormatException)
+            {
+                return "Invalid Salary. Salary must be a number";
+            }
+
+
+
+
+        }
+
+        private string IsValidPhone(string phone)
+        {
+
+            if (phone == "" || phone == null || phone.Length == 0)
+            {
+                return "Phone number is required";
+            }
+
+
+            if (phone.Any(c => (!char.IsDigit(c) && c != '+' && c != '-')))
+            {
+
+                return "Invalid phone number.";
+            }
+
+
+            return "";
+
+
+
+
+
+
+        }
+
+
     }
 }
