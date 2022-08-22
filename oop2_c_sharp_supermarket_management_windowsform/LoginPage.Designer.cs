@@ -29,25 +29,30 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pageHeaderContainer = new System.Windows.Forms.Panel();
             this.pageHeaderLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.buttonsContainer = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.passwordError = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.usernameError = new System.Windows.Forms.Label();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBoxLabel = new System.Windows.Forms.Label();
             this.usernameTextBoxLabel = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.textBoxContainer = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pageHeaderContainer.SuspendLayout();
             this.buttonsContainer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.textBoxContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pageHeaderContainer
@@ -117,36 +122,94 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Controls.Add(this.passwordTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.passwordTextBoxLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.usernameTextBoxLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.usernameTextBox, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(26, 106);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(540, 150);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.passwordError);
+            this.panel2.Controls.Add(this.passwordTextBox);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(165, 78);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(372, 69);
+            this.panel2.TabIndex = 4;
+            // 
+            // passwordError
+            // 
+            this.passwordError.AccessibleName = "";
+            this.passwordError.AutoSize = true;
+            this.passwordError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.passwordError.ForeColor = System.Drawing.Color.Red;
+            this.passwordError.Location = new System.Drawing.Point(0, 32);
+            this.passwordError.Name = "passwordError";
+            this.passwordError.Size = new System.Drawing.Size(0, 21);
+            this.passwordError.TabIndex = 6;
+            this.passwordError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBox.Location = new System.Drawing.Point(165, 96);
+            this.passwordTextBox.Location = new System.Drawing.Point(0, 0);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(372, 32);
             this.passwordTextBox.TabIndex = 5;
+            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.password_Validating);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.usernameError);
+            this.panel1.Controls.Add(this.usernameTextBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(165, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(372, 69);
+            this.panel1.TabIndex = 4;
+            // 
+            // usernameError
+            // 
+            this.usernameError.AccessibleName = "";
+            this.usernameError.AutoSize = true;
+            this.usernameError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.usernameError.ForeColor = System.Drawing.Color.Red;
+            this.usernameError.Location = new System.Drawing.Point(0, 32);
+            this.usernameError.Name = "usernameError";
+            this.usernameError.Size = new System.Drawing.Size(0, 21);
+            this.usernameError.TabIndex = 3;
+            this.usernameError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.usernameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(372, 32);
+            this.usernameTextBox.TabIndex = 4;
+            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.username_Validating);
             // 
             // passwordTextBoxLabel
             // 
             this.passwordTextBoxLabel.AccessibleName = "";
-            this.passwordTextBoxLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTextBoxLabel.AutoSize = true;
+            this.passwordTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.passwordTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.passwordTextBoxLabel.Location = new System.Drawing.Point(25, 97);
+            this.passwordTextBoxLabel.Location = new System.Drawing.Point(3, 75);
             this.passwordTextBoxLabel.Name = "passwordTextBoxLabel";
-            this.passwordTextBoxLabel.Size = new System.Drawing.Size(112, 30);
+            this.passwordTextBoxLabel.Size = new System.Drawing.Size(156, 30);
             this.passwordTextBoxLabel.TabIndex = 3;
             this.passwordTextBoxLabel.Text = "Password";
             this.passwordTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -154,31 +217,18 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             // usernameTextBoxLabel
             // 
             this.usernameTextBoxLabel.AccessibleName = "";
-            this.usernameTextBoxLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameTextBoxLabel.AutoSize = true;
+            this.usernameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.usernameTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.usernameTextBoxLabel.Location = new System.Drawing.Point(22, 22);
+            this.usernameTextBoxLabel.Location = new System.Drawing.Point(3, 0);
             this.usernameTextBoxLabel.Name = "usernameTextBoxLabel";
-            this.usernameTextBoxLabel.Size = new System.Drawing.Size(117, 30);
+            this.usernameTextBoxLabel.Size = new System.Drawing.Size(156, 30);
             this.usernameTextBoxLabel.TabIndex = 2;
             this.usernameTextBoxLabel.Text = "Username";
             this.usernameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernameTextBox.Location = new System.Drawing.Point(165, 21);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(372, 32);
-            this.usernameTextBox.TabIndex = 4;
-            // 
             // textBoxContainer
             // 
-            this.textBoxContainer.Controls.Add(this.button4);
-            this.textBoxContainer.Controls.Add(this.button3);
-            this.textBoxContainer.Controls.Add(this.button2);
-            this.textBoxContainer.Controls.Add(this.button1);
             this.textBoxContainer.Controls.Add(this.tableLayoutPanel1);
             this.textBoxContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxContainer.Location = new System.Drawing.Point(0, 100);
@@ -186,70 +236,15 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.textBoxContainer.Size = new System.Drawing.Size(588, 424);
             this.textBoxContainer.TabIndex = 1;
             // 
-            // button1
+            // errorProvider1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(26, 273);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "admin";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(112, 273);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 45);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "inventory manager";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.AutoSize = true;
-            this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(285, 273);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 45);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "supervisor";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.AutoSize = true;
-            this.button4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(427, 273);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 45);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "checkout";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(588, 524);
             this.Controls.Add(this.buttonsContainer);
             this.Controls.Add(this.textBoxContainer);
@@ -264,8 +259,12 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.buttonsContainer.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.textBoxContainer.ResumeLayout(false);
-            this.textBoxContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,9 +282,10 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.Panel textBoxContainer;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label passwordError;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label usernameError;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

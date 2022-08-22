@@ -28,7 +28,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-        string path = @"Data Source=DESKTOP-1S3SUP7\SQLEXPRESS;Initial Catalog=MainDatabase;User Id=one;Password=1234;Integrated Security=False";
+        string path = $@"Data Source={EnvironmentProvider.server};Initial Catalog={EnvironmentProvider.database};User Id={EnvironmentProvider.userId};Password={EnvironmentProvider.Password};Integrated Security={EnvironmentProvider.security}";
         SqlConnection con;
         SqlCommand cmd;
         DataTable dt;
@@ -101,19 +101,19 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
             
-            username = usernameTextBox.Text;
-            firstname = firstnameTextBox.Text;
-            lastname = lastnameTextBox.Text;
-            password = passwordTextBox.Text;
-            address = addressTextBox.Text;
-            role = roleComboBox.SelectedItem.ToString();
-            gender = genderComboBox.SelectedItem.ToString();
-            phone = phoneTextBox.Text;
+            username = usernameTextBox.Text.Trim();
+            firstname = firstnameTextBox.Text.Trim();
+            lastname = lastnameTextBox.Text.Trim();
+            password = passwordTextBox.Text.Trim();
+            address = addressTextBox.Text.Trim();
+            role = roleComboBox.SelectedItem.ToString().Trim();
+            gender = genderComboBox.SelectedItem.ToString().Trim();
+            phone = phoneTextBox.Text.Trim();
 
             try
             {
 
-                salary = Convert.ToDouble(salaryTextBox.Text);
+                salary = Convert.ToDouble(salaryTextBox.Text.Trim());
             }
             catch (FormatException)
             {
@@ -123,7 +123,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             }
             try
             {
-                id = Convert.ToInt32(idTextBox.Text);
+                id = Convert.ToInt32(idTextBox.Text.Trim());
             }
             catch (FormatException)
             {
@@ -189,10 +189,32 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             try
             {
                 con.Open();
-                
+
+
+
+                string query = $@"
+IF OBJECT_ID('Employees', 'U') IS NOT NULL 
+BEGIN 
+update Employees set Username = '{username}',Firstname ='{firstname}', Lastname ='{lastname}',Password = '{password}', Role ='{role}', Gender ='{gender}', Salary='{salary}', Phone = '{phone}', Address='{address}' where  Id = {id}
+END 
+ELSE BEGIN 
+create table Employees (Id INT NOT NULL PRIMARY KEY identity(1,1), Username NCHAR(18) NOT NULL,Firstname NCHAR(18) NOT NULL,Lastname NCHAR(18) NOT NULL, Password NVARCHAR(64) NOT NULL,Role NCHAR(18) NOT NULL, Gender NCHAR(18) NOT NULL,  Salary NUMERIC(18) NOT NULL , Phone NUMERIC(18) NOT NULL,  type NCHAR(18) NOT NULL,  Address NVARCHAR(64) NOT NULL )
+insert into Employees (Id. Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) 
+values('{id}', '{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')
+
+END";
+
+
+
+
+
+
+
+
+
                 string sqlcommand = $"update Employees set Username = '{username}',Firstname ='{firstname}', Lastname ='{lastname}',Password = '{password}', Role ='{role}', Gender ='{gender}', Salary='{salary}', Phone = '{phone}', Address='{address}' where  Id = {id}";
 
-                cmd = new SqlCommand(sqlcommand, con);
+                cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("employee Data Updated", "Success");
@@ -663,10 +685,17 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         {
             try
             {
+
+
                 int id = Convert.ToInt32(idd);
                 dt = new DataTable();
                 con.Open();
-                string sqlcommand = $"select * from Employees where Id = {id} ";
+                string sqlcommand = $@"
+IF OBJECT_ID('Employees', 'U') IS NOT NULL 
+BEGIN 
+select * from Employees where Id = {id} or Username='{idd}'
+END 
+";
 
                 adapter = new SqlDataAdapter(sqlcommand, con);
                 adapter.Fill(dt);
@@ -708,40 +737,26 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
             try
             {
-                idTextBox.Text = dataGridView1.Rows[0].Cells["Id"].Value.ToString();
-                usernameTextBox.Text = dataGridView1.Rows[0].Cells["Username"].Value.ToString();
-                firstnameTextBox.Text = dataGridView1.Rows[0].Cells["Firstname"].Value.ToString();
-                lastnameTextBox.Text = dataGridView1.Rows[0].Cells["Lastname"].Value.ToString();
-                passwordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString();
-                confirmPasswordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString();
-                salaryTextBox.Text = dataGridView1.Rows[0].Cells["Salary"].Value.ToString();
-                phoneTextBox.Text = dataGridView1.Rows[0].Cells["Phone"].Value.ToString();
-                addressTextBox.Text = dataGridView1.Rows[0].Cells["Address"].Value.ToString();
+                if (this.dataGridView1.RowCount > 1)
+                {
+                    idTextBox.Text = dataGridView1.Rows[0].Cells["Id"].Value.ToString().Trim();
+                    usernameTextBox.Text = dataGridView1.Rows[0].Cells["Username"].Value.ToString().Trim();
+                    firstnameTextBox.Text = dataGridView1.Rows[0].Cells["Firstname"].Value.ToString().Trim();
+                    lastnameTextBox.Text = dataGridView1.Rows[0].Cells["Lastname"].Value.ToString().Trim();
+                    passwordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString().Trim();
+                    confirmPasswordTextBox.Text = dataGridView1.Rows[0].Cells["Password"].Value.ToString().Trim();
+                    salaryTextBox.Text = dataGridView1.Rows[0].Cells["Salary"].Value.ToString().Trim();
+                    phoneTextBox.Text = dataGridView1.Rows[0].Cells["Phone"].Value.ToString().Trim();
+                    addressTextBox.Text = dataGridView1.Rows[0].Cells["Address"].Value.ToString().Trim();
 
-                switch (dataGridView1.Rows[0].Cells["Role"].Value.ToString())
-                {
-                    case "Admin":
-                        roleComboBox.SelectedIndex = 0;
-                        break;
-                    case "Supervisor":
-                        roleComboBox.SelectedIndex = 1;
-                        break;
-                    case "Checkout":
-                        roleComboBox.SelectedIndex = 2;
-                        break;
-                    case "ProductMng":
-                        roleComboBox.SelectedIndex = 3;
-                        break;
+                    roleComboBox.SelectedIndex = roleComboBox.FindStringExact(dataGridView1.Rows[0].Cells["Role"].Value.ToString().Trim());
+                    genderComboBox.SelectedIndex = genderComboBox.FindStringExact(dataGridView1.Rows[0].Cells["Gender"].Value.ToString().Trim());
+
+
+                    
                 }
-                switch (dataGridView1.Rows[0].Cells["Gender"].Value.ToString())
-                {
-                    case "Male":
-                        roleComboBox.SelectedIndex = 0;
-                        break;
-                    case "Female":
-                        roleComboBox.SelectedIndex = 1;
-                        break;
-                }
+
+                    
 
                 
 

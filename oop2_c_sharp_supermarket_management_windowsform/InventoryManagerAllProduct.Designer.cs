@@ -29,7 +29,6 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
@@ -37,26 +36,19 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.searchButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PageHeader = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.queryTextBox = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(750, 580);
-            this.dataGridView1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -80,6 +72,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.deleteButton.TabIndex = 9;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -91,6 +84,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.editButton.TabIndex = 8;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // showAllButton
             // 
@@ -102,6 +96,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.showAllButton.TabIndex = 7;
             this.showAllButton.Text = "Show All";
             this.showAllButton.UseVisualStyleBackColor = true;
+            this.showAllButton.Click += new System.EventHandler(this.showAllButton_Click);
             // 
             // searchButton
             // 
@@ -113,6 +108,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.searchButton.TabIndex = 6;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // panel2
             // 
@@ -120,7 +116,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 100);
+            this.panel2.Size = new System.Drawing.Size(750, 85);
             this.panel2.TabIndex = 10;
             // 
             // PageHeader
@@ -129,38 +125,66 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.PageHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PageHeader.AutoSize = true;
             this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PageHeader.Location = new System.Drawing.Point(300, 37);
+            this.PageHeader.Location = new System.Drawing.Point(323, 29);
             this.PageHeader.Name = "PageHeader";
             this.PageHeader.Size = new System.Drawing.Size(106, 30);
             this.PageHeader.TabIndex = 3;
             this.PageHeader.Text = "Products";
             this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(750, 580);
-            this.panel4.TabIndex = 12;
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.queryTextBox);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 580);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(750, 100);
             this.panel3.TabIndex = 11;
             // 
-            // textBox1
+            // queryTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(204, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 32);
-            this.textBox1.TabIndex = 0;
+            this.queryTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.queryTextBox.Location = new System.Drawing.Point(204, 27);
+            this.queryTextBox.Name = "queryTextBox";
+            this.queryTextBox.Size = new System.Drawing.Size(350, 32);
+            this.queryTextBox.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(750, 680);
+            this.panel4.TabIndex = 12;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(750, 680);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(750, 93);
+            this.panel6.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(750, 421);
+            this.dataGridView1.TabIndex = 1;
             // 
             // InventoryManagerAllProduct
             // 
@@ -169,25 +193,24 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.ClientSize = new System.Drawing.Size(750, 680);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InventoryManagerAllProduct";
             this.Text = "InventoryManagerAllProduct";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
@@ -195,8 +218,11 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label PageHeader;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox queryTextBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel6;
     }
 }

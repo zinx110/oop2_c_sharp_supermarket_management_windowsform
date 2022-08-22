@@ -29,260 +29,571 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.addUserButton = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.categoryTextBoxLabel = new System.Windows.Forms.Label();
-            this.priceTextBoxLabel = new System.Windows.Forms.Label();
-            this.manufactureDateTextBox = new System.Windows.Forms.TextBox();
-            this.productTypeTextBox = new System.Windows.Forms.TextBox();
-            this.productTypeTextBoxLabel = new System.Windows.Forms.Label();
-            this.productNameTextBoxLabel = new System.Windows.Forms.Label();
-            this.productNameTextBox = new System.Windows.Forms.TextBox();
-            this.productDescriptionTextBoxLabel = new System.Windows.Forms.Label();
-            this.productDescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.manufactureDateTextBoxLabel = new System.Windows.Forms.Label();
-            this.expirationDateTextBoxLabel = new System.Windows.Forms.Label();
-            this.expirationDateTextBox = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.idTextBoxError = new System.Windows.Forms.Label();
+            this.idtextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.descriptionTextBoxError = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.dateError = new System.Windows.Forms.Label();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.typeComboBoxError = new System.Windows.Forms.Label();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.priceTextBoxError = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.categoryComboBoxError = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.manufactureTextBoxError = new System.Windows.Forms.Label();
+            this.manufacturerTextBox = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.nameTextBoxError = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.firstnameTextBoxLabel = new System.Windows.Forms.Label();
+            this.usernameTextBoxLabel = new System.Windows.Forms.Label();
+            this.addressTextBoxLabel = new System.Windows.Forms.Label();
+            this.phoneTextBoxLabel = new System.Windows.Forms.Label();
+            this.genderComboBoxLabel = new System.Windows.Forms.Label();
+            this.salaryTextBoxLabel = new System.Windows.Forms.Label();
+            this.roleComboBoxLabel = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.importUserButton = new System.Windows.Forms.Button();
+            this.deleteUserButton = new System.Windows.Forms.Button();
+            this.updateUserButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PageHeader = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 680);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.addUserButton);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 620);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(750, 60);
-            this.panel5.TabIndex = 3;
-            // 
-            // addUserButton
-            // 
-            this.addUserButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.addUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addUserButton.Location = new System.Drawing.Point(560, 0);
-            this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(190, 60);
-            this.addUserButton.TabIndex = 8;
-            this.addUserButton.Text = "Add";
-            this.addUserButton.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 100);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 580);
-            this.panel3.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Controls.Add(this.categoryTextBoxLabel, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.priceTextBoxLabel, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.manufactureDateTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.productTypeTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.productTypeTextBoxLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.productNameTextBoxLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.productNameTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.productDescriptionTextBoxLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.productDescriptionTextBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.manufactureDateTextBoxLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.expirationDateTextBoxLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.expirationDateTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.priceTextBox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.categoryTextBox, 1, 6);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 58);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.firstnameTextBoxLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.usernameTextBoxLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.addressTextBoxLabel, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.phoneTextBoxLabel, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.genderComboBoxLabel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.salaryTextBoxLabel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.roleComboBoxLabel, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(703, 388);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 471);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // categoryTextBoxLabel
+            // panel7
             // 
-            this.categoryTextBoxLabel.AccessibleName = "";
-            this.categoryTextBoxLabel.AutoSize = true;
-            this.categoryTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.categoryTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.categoryTextBoxLabel.Location = new System.Drawing.Point(3, 330);
-            this.categoryTextBoxLabel.Name = "categoryTextBoxLabel";
-            this.categoryTextBoxLabel.Size = new System.Drawing.Size(109, 58);
-            this.categoryTextBoxLabel.TabIndex = 15;
-            this.categoryTextBoxLabel.Text = "Category";
-            this.categoryTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel7.Controls.Add(this.idTextBoxError);
+            this.panel7.Controls.Add(this.idtextBox);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(228, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(519, 46);
+            this.panel7.TabIndex = 28;
             // 
-            // priceTextBoxLabel
+            // idTextBoxError
             // 
-            this.priceTextBoxLabel.AccessibleName = "";
-            this.priceTextBoxLabel.AutoSize = true;
-            this.priceTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.priceTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.priceTextBoxLabel.Location = new System.Drawing.Point(3, 275);
-            this.priceTextBoxLabel.Name = "priceTextBoxLabel";
-            this.priceTextBoxLabel.Size = new System.Drawing.Size(65, 55);
-            this.priceTextBoxLabel.TabIndex = 12;
-            this.priceTextBoxLabel.Text = "Price";
-            this.priceTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.idTextBoxError.AccessibleName = "";
+            this.idTextBoxError.AutoSize = true;
+            this.idTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.idTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.idTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.idTextBoxError.Name = "idTextBoxError";
+            this.idTextBoxError.Size = new System.Drawing.Size(0, 17);
+            this.idTextBoxError.TabIndex = 6;
+            this.idTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // manufactureDateTextBox
+            // idtextBox
             // 
-            this.manufactureDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.manufactureDateTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.manufactureDateTextBox.Location = new System.Drawing.Point(270, 176);
-            this.manufactureDateTextBox.Name = "manufactureDateTextBox";
-            this.manufactureDateTextBox.Size = new System.Drawing.Size(372, 32);
-            this.manufactureDateTextBox.TabIndex = 11;
+            this.idtextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.idtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.idtextBox.Location = new System.Drawing.Point(0, 0);
+            this.idtextBox.MaxLength = 18;
+            this.idtextBox.Name = "idtextBox";
+            this.idtextBox.Size = new System.Drawing.Size(519, 26);
+            this.idtextBox.TabIndex = 4;
             // 
-            // productTypeTextBox
+            // label1
             // 
-            this.productTypeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.productTypeTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productTypeTextBox.Location = new System.Drawing.Point(270, 66);
-            this.productTypeTextBox.Name = "productTypeTextBox";
-            this.productTypeTextBox.Size = new System.Drawing.Size(372, 32);
-            this.productTypeTextBox.TabIndex = 5;
+            this.label1.AccessibleName = "";
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(219, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Product name";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // productTypeTextBoxLabel
+            // panel10
             // 
-            this.productTypeTextBoxLabel.AccessibleName = "";
-            this.productTypeTextBoxLabel.AutoSize = true;
-            this.productTypeTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.productTypeTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.productTypeTextBoxLabel.Location = new System.Drawing.Point(3, 55);
-            this.productTypeTextBoxLabel.Name = "productTypeTextBoxLabel";
-            this.productTypeTextBoxLabel.Size = new System.Drawing.Size(63, 55);
-            this.productTypeTextBoxLabel.TabIndex = 3;
-            this.productTypeTextBoxLabel.Text = "Type";
-            this.productTypeTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel10.Controls.Add(this.descriptionTextBoxError);
+            this.panel10.Controls.Add(this.descriptionTextBox);
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(228, 367);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(519, 101);
+            this.panel10.TabIndex = 36;
             // 
-            // productNameTextBoxLabel
+            // descriptionTextBoxError
             // 
-            this.productNameTextBoxLabel.AccessibleName = "";
-            this.productNameTextBoxLabel.AutoSize = true;
-            this.productNameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.productNameTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.productNameTextBoxLabel.Location = new System.Drawing.Point(3, 0);
-            this.productNameTextBoxLabel.Name = "productNameTextBoxLabel";
-            this.productNameTextBoxLabel.Size = new System.Drawing.Size(163, 55);
-            this.productNameTextBoxLabel.TabIndex = 2;
-            this.productNameTextBoxLabel.Text = "Product Name";
-            this.productNameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.descriptionTextBoxError.AccessibleName = "";
+            this.descriptionTextBoxError.AutoSize = true;
+            this.descriptionTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.descriptionTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.descriptionTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.descriptionTextBoxError.Location = new System.Drawing.Point(0, 68);
+            this.descriptionTextBoxError.Name = "descriptionTextBoxError";
+            this.descriptionTextBoxError.Size = new System.Drawing.Size(0, 17);
+            this.descriptionTextBoxError.TabIndex = 24;
+            this.descriptionTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // productNameTextBox
+            // descriptionTextBox
             // 
-            this.productNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.productNameTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productNameTextBox.Location = new System.Drawing.Point(270, 11);
-            this.productNameTextBox.Name = "productNameTextBox";
-            this.productNameTextBox.Size = new System.Drawing.Size(372, 32);
-            this.productNameTextBox.TabIndex = 4;
+            this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.descriptionTextBox.Location = new System.Drawing.Point(0, 0);
+            this.descriptionTextBox.MaxLength = 64;
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(519, 68);
+            this.descriptionTextBox.TabIndex = 23;
             // 
-            // productDescriptionTextBoxLabel
+            // label5
             // 
-            this.productDescriptionTextBoxLabel.AccessibleName = "";
-            this.productDescriptionTextBoxLabel.AutoSize = true;
-            this.productDescriptionTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.productDescriptionTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.productDescriptionTextBoxLabel.Location = new System.Drawing.Point(3, 110);
-            this.productDescriptionTextBoxLabel.Name = "productDescriptionTextBoxLabel";
-            this.productDescriptionTextBoxLabel.Size = new System.Drawing.Size(132, 55);
-            this.productDescriptionTextBoxLabel.TabIndex = 6;
-            this.productDescriptionTextBoxLabel.Text = "Description";
-            this.productDescriptionTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.AccessibleName = "";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(0, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Username";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // productDescriptionTextBox
+            // panel14
             // 
-            this.productDescriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.productDescriptionTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productDescriptionTextBox.Location = new System.Drawing.Point(270, 121);
-            this.productDescriptionTextBox.Name = "productDescriptionTextBox";
-            this.productDescriptionTextBox.Size = new System.Drawing.Size(372, 32);
-            this.productDescriptionTextBox.TabIndex = 7;
+            this.panel14.Controls.Add(this.dateError);
+            this.panel14.Controls.Add(this.dateTimePicker);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(228, 315);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(519, 46);
+            this.panel14.TabIndex = 35;
             // 
-            // manufactureDateTextBoxLabel
+            // dateError
             // 
-            this.manufactureDateTextBoxLabel.AccessibleName = "";
-            this.manufactureDateTextBoxLabel.AutoSize = true;
-            this.manufactureDateTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.manufactureDateTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.manufactureDateTextBoxLabel.Location = new System.Drawing.Point(3, 165);
-            this.manufactureDateTextBoxLabel.Name = "manufactureDateTextBoxLabel";
-            this.manufactureDateTextBoxLabel.Size = new System.Drawing.Size(201, 55);
-            this.manufactureDateTextBoxLabel.TabIndex = 8;
-            this.manufactureDateTextBoxLabel.Text = "Manufacture Date";
-            this.manufactureDateTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dateError.AccessibleName = "";
+            this.dateError.AutoSize = true;
+            this.dateError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateError.ForeColor = System.Drawing.Color.Red;
+            this.dateError.Location = new System.Drawing.Point(0, 23);
+            this.dateError.Name = "dateError";
+            this.dateError.Size = new System.Drawing.Size(0, 17);
+            this.dateError.TabIndex = 23;
+            this.dateError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // expirationDateTextBoxLabel
+            // dateTimePicker
             // 
-            this.expirationDateTextBoxLabel.AccessibleName = "";
-            this.expirationDateTextBoxLabel.AutoSize = true;
-            this.expirationDateTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.expirationDateTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.expirationDateTextBoxLabel.Location = new System.Drawing.Point(3, 220);
-            this.expirationDateTextBoxLabel.Name = "expirationDateTextBoxLabel";
-            this.expirationDateTextBoxLabel.Size = new System.Drawing.Size(174, 55);
-            this.expirationDateTextBoxLabel.TabIndex = 9;
-            this.expirationDateTextBoxLabel.Text = "Expiration Date";
-            this.expirationDateTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dateTimePicker.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker.Location = new System.Drawing.Point(0, 0);
+            this.dateTimePicker.MinDate = new System.DateTime(2022, 8, 21, 0, 0, 0, 0);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(519, 23);
+            this.dateTimePicker.TabIndex = 13;
+            this.dateTimePicker.Value = new System.DateTime(2022, 8, 22, 0, 0, 0, 0);
             // 
-            // expirationDateTextBox
+            // panel13
             // 
-            this.expirationDateTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.expirationDateTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.expirationDateTextBox.Location = new System.Drawing.Point(270, 231);
-            this.expirationDateTextBox.Name = "expirationDateTextBox";
-            this.expirationDateTextBox.Size = new System.Drawing.Size(372, 32);
-            this.expirationDateTextBox.TabIndex = 10;
+            this.panel13.Controls.Add(this.typeComboBoxError);
+            this.panel13.Controls.Add(this.typeComboBox);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(228, 263);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(519, 46);
+            this.panel13.TabIndex = 34;
+            // 
+            // typeComboBoxError
+            // 
+            this.typeComboBoxError.AccessibleName = "";
+            this.typeComboBoxError.AutoSize = true;
+            this.typeComboBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.typeComboBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.typeComboBoxError.ForeColor = System.Drawing.Color.Red;
+            this.typeComboBoxError.Location = new System.Drawing.Point(0, 28);
+            this.typeComboBoxError.Name = "typeComboBoxError";
+            this.typeComboBoxError.Size = new System.Drawing.Size(0, 17);
+            this.typeComboBoxError.TabIndex = 19;
+            this.typeComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // typeComboBox
+            // 
+            this.typeComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(0, 0);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(519, 28);
+            this.typeComboBox.TabIndex = 18;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.priceTextBoxError);
+            this.panel12.Controls.Add(this.priceTextBox);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(228, 211);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(519, 46);
+            this.panel12.TabIndex = 33;
+            // 
+            // priceTextBoxError
+            // 
+            this.priceTextBoxError.AccessibleName = "";
+            this.priceTextBoxError.AutoSize = true;
+            this.priceTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.priceTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.priceTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.priceTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.priceTextBoxError.Name = "priceTextBoxError";
+            this.priceTextBoxError.Size = new System.Drawing.Size(0, 17);
+            this.priceTextBoxError.TabIndex = 12;
+            this.priceTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.priceTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.priceTextBox.Location = new System.Drawing.Point(270, 286);
+            this.priceTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.priceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.priceTextBox.Location = new System.Drawing.Point(0, 0);
+            this.priceTextBox.MaxLength = 18;
             this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(372, 32);
-            this.priceTextBox.TabIndex = 13;
+            this.priceTextBox.Size = new System.Drawing.Size(519, 26);
+            this.priceTextBox.TabIndex = 11;
             // 
-            // categoryTextBox
+            // panel11
             // 
-            this.categoryTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.categoryTextBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.categoryTextBox.Location = new System.Drawing.Point(270, 343);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(372, 32);
-            this.categoryTextBox.TabIndex = 14;
+            this.panel11.Controls.Add(this.categoryComboBoxError);
+            this.panel11.Controls.Add(this.categoryComboBox);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(228, 159);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(519, 46);
+            this.panel11.TabIndex = 32;
+            // 
+            // categoryComboBoxError
+            // 
+            this.categoryComboBoxError.AccessibleName = "";
+            this.categoryComboBoxError.AutoSize = true;
+            this.categoryComboBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.categoryComboBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.categoryComboBoxError.ForeColor = System.Drawing.Color.Red;
+            this.categoryComboBoxError.Location = new System.Drawing.Point(0, 28);
+            this.categoryComboBoxError.Name = "categoryComboBoxError";
+            this.categoryComboBoxError.Size = new System.Drawing.Size(0, 17);
+            this.categoryComboBoxError.TabIndex = 18;
+            this.categoryComboBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(0, 0);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(519, 28);
+            this.categoryComboBox.TabIndex = 17;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.manufactureTextBoxError);
+            this.panel6.Controls.Add(this.manufacturerTextBox);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(228, 107);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(519, 46);
+            this.panel6.TabIndex = 28;
+            // 
+            // manufactureTextBoxError
+            // 
+            this.manufactureTextBoxError.AccessibleName = "";
+            this.manufactureTextBoxError.AutoSize = true;
+            this.manufactureTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.manufactureTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.manufactureTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.manufactureTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.manufactureTextBoxError.Name = "manufactureTextBoxError";
+            this.manufactureTextBoxError.Size = new System.Drawing.Size(0, 17);
+            this.manufactureTextBoxError.TabIndex = 6;
+            this.manufactureTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // manufacturerTextBox
+            // 
+            this.manufacturerTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.manufacturerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.manufacturerTextBox.Location = new System.Drawing.Point(0, 0);
+            this.manufacturerTextBox.MaxLength = 18;
+            this.manufacturerTextBox.Name = "manufacturerTextBox";
+            this.manufacturerTextBox.Size = new System.Drawing.Size(519, 26);
+            this.manufacturerTextBox.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.nameTextBoxError);
+            this.panel4.Controls.Add(this.nameTextBox);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(228, 55);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(519, 46);
+            this.panel4.TabIndex = 27;
+            // 
+            // nameTextBoxError
+            // 
+            this.nameTextBoxError.AccessibleName = "";
+            this.nameTextBoxError.AutoSize = true;
+            this.nameTextBoxError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nameTextBoxError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nameTextBoxError.ForeColor = System.Drawing.Color.Red;
+            this.nameTextBoxError.Location = new System.Drawing.Point(0, 26);
+            this.nameTextBoxError.Name = "nameTextBoxError";
+            this.nameTextBoxError.Size = new System.Drawing.Size(0, 17);
+            this.nameTextBoxError.TabIndex = 6;
+            this.nameTextBoxError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.nameTextBox.MaxLength = 18;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(519, 26);
+            this.nameTextBox.TabIndex = 4;
+            // 
+            // firstnameTextBoxLabel
+            // 
+            this.firstnameTextBoxLabel.AccessibleName = "";
+            this.firstnameTextBoxLabel.AutoSize = true;
+            this.firstnameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.firstnameTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.firstnameTextBoxLabel.Location = new System.Drawing.Point(3, 104);
+            this.firstnameTextBoxLabel.Name = "firstnameTextBoxLabel";
+            this.firstnameTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.firstnameTextBoxLabel.TabIndex = 3;
+            this.firstnameTextBoxLabel.Text = "Manufacturer ";
+            this.firstnameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // usernameTextBoxLabel
+            // 
+            this.usernameTextBoxLabel.AccessibleName = "";
+            this.usernameTextBoxLabel.AutoSize = true;
+            this.usernameTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.usernameTextBoxLabel.Location = new System.Drawing.Point(3, 52);
+            this.usernameTextBoxLabel.Name = "usernameTextBoxLabel";
+            this.usernameTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.usernameTextBoxLabel.TabIndex = 2;
+            this.usernameTextBoxLabel.Text = "Product name";
+            this.usernameTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addressTextBoxLabel
+            // 
+            this.addressTextBoxLabel.AccessibleName = "";
+            this.addressTextBoxLabel.AutoSize = true;
+            this.addressTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addressTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addressTextBoxLabel.Location = new System.Drawing.Point(3, 364);
+            this.addressTextBoxLabel.Name = "addressTextBoxLabel";
+            this.addressTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.addressTextBoxLabel.TabIndex = 23;
+            this.addressTextBoxLabel.Text = "Description";
+            this.addressTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // phoneTextBoxLabel
+            // 
+            this.phoneTextBoxLabel.AccessibleName = "";
+            this.phoneTextBoxLabel.AutoSize = true;
+            this.phoneTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.phoneTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.phoneTextBoxLabel.Location = new System.Drawing.Point(3, 312);
+            this.phoneTextBoxLabel.Name = "phoneTextBoxLabel";
+            this.phoneTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.phoneTextBoxLabel.TabIndex = 18;
+            this.phoneTextBoxLabel.Text = "Exp Date";
+            this.phoneTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // genderComboBoxLabel
+            // 
+            this.genderComboBoxLabel.AccessibleName = "";
+            this.genderComboBoxLabel.AutoSize = true;
+            this.genderComboBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.genderComboBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.genderComboBoxLabel.Location = new System.Drawing.Point(3, 260);
+            this.genderComboBoxLabel.Name = "genderComboBoxLabel";
+            this.genderComboBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.genderComboBoxLabel.TabIndex = 12;
+            this.genderComboBoxLabel.Text = "Type";
+            this.genderComboBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // salaryTextBoxLabel
+            // 
+            this.salaryTextBoxLabel.AccessibleName = "";
+            this.salaryTextBoxLabel.AutoSize = true;
+            this.salaryTextBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.salaryTextBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.salaryTextBoxLabel.Location = new System.Drawing.Point(3, 208);
+            this.salaryTextBoxLabel.Name = "salaryTextBoxLabel";
+            this.salaryTextBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.salaryTextBoxLabel.TabIndex = 9;
+            this.salaryTextBoxLabel.Text = "Price";
+            this.salaryTextBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roleComboBoxLabel
+            // 
+            this.roleComboBoxLabel.AccessibleName = "";
+            this.roleComboBoxLabel.AutoSize = true;
+            this.roleComboBoxLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleComboBoxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.roleComboBoxLabel.Location = new System.Drawing.Point(3, 156);
+            this.roleComboBoxLabel.Name = "roleComboBoxLabel";
+            this.roleComboBoxLabel.Size = new System.Drawing.Size(219, 20);
+            this.roleComboBoxLabel.TabIndex = 8;
+            this.roleComboBoxLabel.Text = "Category";
+            this.roleComboBoxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 70);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(750, 610);
+            this.panel3.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 471);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(750, 79);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.searchTextBox);
+            this.panel5.Controls.Add(this.importUserButton);
+            this.panel5.Controls.Add(this.deleteUserButton);
+            this.panel5.Controls.Add(this.updateUserButton);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 550);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(750, 60);
+            this.panel5.TabIndex = 5;
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchTextBox.Location = new System.Drawing.Point(0, 0);
+            this.searchTextBox.MaxLength = 10;
+            this.searchTextBox.Multiline = true;
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(300, 60);
+            this.searchTextBox.TabIndex = 24;
+            // 
+            // importUserButton
+            // 
+            this.importUserButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.importUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.importUserButton.Location = new System.Drawing.Point(300, 0);
+            this.importUserButton.Name = "importUserButton";
+            this.importUserButton.Size = new System.Drawing.Size(150, 60);
+            this.importUserButton.TabIndex = 10;
+            this.importUserButton.Text = "Import";
+            this.importUserButton.UseVisualStyleBackColor = true;
+            this.importUserButton.Click += new System.EventHandler(this.importUserButton_Click);
+            // 
+            // deleteUserButton
+            // 
+            this.deleteUserButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.deleteUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.deleteUserButton.Location = new System.Drawing.Point(450, 0);
+            this.deleteUserButton.Name = "deleteUserButton";
+            this.deleteUserButton.Size = new System.Drawing.Size(150, 60);
+            this.deleteUserButton.TabIndex = 9;
+            this.deleteUserButton.Text = "Delete";
+            this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
+            // 
+            // updateUserButton
+            // 
+            this.updateUserButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.updateUserButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.updateUserButton.Location = new System.Drawing.Point(600, 0);
+            this.updateUserButton.Name = "updateUserButton";
+            this.updateUserButton.Size = new System.Drawing.Size(150, 60);
+            this.updateUserButton.TabIndex = 8;
+            this.updateUserButton.Text = "Update";
+            this.updateUserButton.UseVisualStyleBackColor = true;
+            this.updateUserButton.Click += new System.EventHandler(this.updateUserButton_Click);
             // 
             // panel2
             // 
@@ -290,7 +601,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 100);
+            this.panel2.Size = new System.Drawing.Size(750, 70);
             this.panel2.TabIndex = 0;
             // 
             // PageHeader
@@ -299,12 +610,26 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.PageHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PageHeader.AutoSize = true;
             this.PageHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PageHeader.Location = new System.Drawing.Point(310, 35);
+            this.PageHeader.Location = new System.Drawing.Point(293, 0);
             this.PageHeader.Name = "PageHeader";
-            this.PageHeader.Size = new System.Drawing.Size(107, 30);
+            this.PageHeader.Size = new System.Drawing.Size(145, 30);
             this.PageHeader.TabIndex = 3;
-            this.PageHeader.Text = "Edit User";
+            this.PageHeader.Text = "Add Product";
             this.PageHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(750, 680);
+            this.panel1.TabIndex = 2;
             // 
             // InventoryManagerEditProduct
             // 
@@ -315,39 +640,82 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InventoryManagerEditProduct";
             this.Text = "InventoryManagerEditProduct";
-            this.panel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button addUserButton;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label categoryTextBoxLabel;
-        private System.Windows.Forms.Label priceTextBoxLabel;
-        private System.Windows.Forms.TextBox manufactureDateTextBox;
-        private System.Windows.Forms.TextBox productTypeTextBox;
-        private System.Windows.Forms.Label productTypeTextBoxLabel;
-        private System.Windows.Forms.Label productNameTextBoxLabel;
-        private System.Windows.Forms.TextBox productNameTextBox;
-        private System.Windows.Forms.Label productDescriptionTextBoxLabel;
-        private System.Windows.Forms.TextBox productDescriptionTextBox;
-        private System.Windows.Forms.Label manufactureDateTextBoxLabel;
-        private System.Windows.Forms.Label expirationDateTextBoxLabel;
-        private System.Windows.Forms.TextBox expirationDateTextBox;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label descriptionTextBoxError;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label dateError;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label typeComboBoxError;
+        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label priceTextBoxError;
         private System.Windows.Forms.TextBox priceTextBox;
-        private System.Windows.Forms.TextBox categoryTextBox;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label categoryComboBoxError;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label manufactureTextBoxError;
+        private System.Windows.Forms.TextBox manufacturerTextBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label nameTextBoxError;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label firstnameTextBoxLabel;
+        private System.Windows.Forms.Label usernameTextBoxLabel;
+        private System.Windows.Forms.Label addressTextBoxLabel;
+        private System.Windows.Forms.Label phoneTextBoxLabel;
+        private System.Windows.Forms.Label genderComboBoxLabel;
+        private System.Windows.Forms.Label salaryTextBoxLabel;
+        private System.Windows.Forms.Label roleComboBoxLabel;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label PageHeader;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label idTextBoxError;
+        private System.Windows.Forms.TextBox idtextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button importUserButton;
+        private System.Windows.Forms.Button deleteUserButton;
+        private System.Windows.Forms.Button updateUserButton;
     }
 }

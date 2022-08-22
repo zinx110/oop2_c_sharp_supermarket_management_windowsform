@@ -26,7 +26,7 @@ namespace oop2_c_sharp_supermarket_management_windowsform
 
 
 
-        string path = @"Data Source=DESKTOP-1S3SUP7\SQLEXPRESS;Initial Catalog=MainDatabase;User Id=one;Password=1234;Integrated Security=False";
+        string path = $@"Data Source={EnvironmentProvider.server};Initial Catalog={EnvironmentProvider.database};User Id={EnvironmentProvider.userId};Password={EnvironmentProvider.Password};Integrated Security={EnvironmentProvider.security}";
         SqlConnection con;
         SqlCommand cmd;
 
@@ -84,19 +84,19 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             
 
 
-                username = usernameTextBox.Text;
-                firstname = firstnameTextBox.Text;
-                lastname = lastnameTextBox.Text;
-                password = passwordTextBox.Text;
-                address = addressTextBox.Text;
-                role = roleComboBox.SelectedItem.ToString();
-                gender = genderComboBox.SelectedItem.ToString();
-                phone = phoneTextBox.Text;
+                username = usernameTextBox.Text.Trim();
+                firstname = firstnameTextBox.Text.Trim();
+                lastname = lastnameTextBox.Text.Trim();
+                password = passwordTextBox.Text.Trim();
+                address = addressTextBox.Text.Trim();
+                role = roleComboBox.SelectedItem.ToString().Trim();
+                gender = genderComboBox.SelectedItem.ToString().Trim();
+                phone = phoneTextBox.Text.Trim();
 
                 try
                 {
 
-                    salary = Convert.ToDouble(salaryTextBox.Text);
+                    salary = Convert.ToDouble(salaryTextBox.Text.Trim());
                 }
                 catch (FormatException)
                 {
@@ -134,9 +134,21 @@ namespace oop2_c_sharp_supermarket_management_windowsform
             {
                 con.Open();
 
+                string query = $@"
+IF OBJECT_ID('Employees', 'U') IS NOT NULL 
+BEGIN 
+insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) 
+values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')
+END 
+ELSE BEGIN 
+create table Employees (Id INT NOT NULL PRIMARY KEY identity(1,1), Username NCHAR(18) NOT NULL,Firstname NCHAR(18) NOT NULL,Lastname NCHAR(18) NOT NULL, Password NVARCHAR(64) NOT NULL,Role NCHAR(18) NOT NULL, Gender NCHAR(18) NOT NULL,  Salary NUMERIC(18) NOT NULL , Phone NUMERIC(18) NOT NULL,  type NCHAR(18) NOT NULL,  Address NVARCHAR(64) NOT NULL )
+insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) 
+values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')
+END";
 
+                
 
-                cmd = new SqlCommand($"insert into Employees (Username, Firstname, Lastname, Password, Role, Gender, Salary, Phone, Address) values('{username}','{firstname}','{lastname}','{password}','{role}','{gender}','{salary}','{phone}','{address}')", con);
+                cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("New employee added", "Success");

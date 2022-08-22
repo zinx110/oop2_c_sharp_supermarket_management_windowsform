@@ -29,35 +29,61 @@ namespace oop2_c_sharp_supermarket_management_windowsform
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.ContactPanel = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(252, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 54);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Messaging";
+            this.panel1.Controls.Add(this.MainPanel);
+            this.panel1.Controls.Add(this.ContactPanel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(750, 680);
+            this.panel1.TabIndex = 0;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.AutoScroll = true;
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(200, 0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(550, 680);
+            this.MainPanel.TabIndex = 1;
+            // 
+            // ContactPanel
+            // 
+            this.ContactPanel.AutoScroll = true;
+            this.ContactPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ContactPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ContactPanel.Location = new System.Drawing.Point(0, 0);
+            this.ContactPanel.Name = "ContactPanel";
+            this.ContactPanel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.ContactPanel.Size = new System.Drawing.Size(200, 680);
+            this.ContactPanel.TabIndex = 0;
             // 
             // MessagingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 680);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MessagingPage";
             this.Text = "MessagingPage";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Panel ContactPanel;
+        private System.Windows.Forms.Button button1;
     }
 }
