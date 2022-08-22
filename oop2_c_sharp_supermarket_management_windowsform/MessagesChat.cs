@@ -64,14 +64,14 @@ END";
                 {
                     for (int index = 0; index < dt.Rows.Count; index++)
                     {
-                        Messages(int.Parse(dt.Rows[index].Field<int>("Sender").ToString().Trim()), int.Parse(dt.Rows[index].Field<int>("Reciever").ToString().Trim()), dt.Rows[index].Field<string>("Text").Trim());
+                        MessageCon(int.Parse(dt.Rows[index][1].ToString().Trim()), int.Parse(dt.Rows[index][2].ToString().Trim()), dt.Rows[index][3].ToString().Trim());
                     }
 
 
                 }
                 else
                 {
-                    MessageBox.Show("There has been an error on importing Messages", "Database Error");
+                    MessageBox.Show("No Messages in Database", "Database");
 
                 }
             }
@@ -98,7 +98,7 @@ END";
 
             }
 
-
+txt.Padding= new System.Windows.Forms.Padding(10);
             txt.Name = text ;
             txt.Text = text;
 
@@ -113,18 +113,8 @@ END";
         {
             Panel Cont = new Panel();
             Cont.Dock = System.Windows.Forms.DockStyle.Top;
-            if (sender == UserProvider.id)
-            {
-                
-                Cont.BackColor = Color.Ivory;
-
-            }
-            else
-            {
-                
-                Cont.BackColor = Color.Beige;
-
-            }
+            Cont.Padding = new System.Windows.Forms.Padding(10);
+            
 
             Cont.Controls.Add(Messages(sender, reciever, text));
             messagesBox.Controls.Add(Cont);
@@ -151,7 +141,7 @@ insert into Messages (Sender, Reciever, Text)
 values({UserProvider.id},{contact},'{textBox1.Text}')
 END 
 ELSE BEGIN 
-create table Messages (Id INT NOT NULL PRIMARY KEY identity(1,1), Sender NUMERIC(18) NOT NULL ,Reciever NUMERIC(18) NOT NULL ,   Text NVARCHAR(100) NOT NULL )
+create table Messages (Id INT NOT NULL PRIMARY KEY identity(1,1), Sender INT NOT NULL ,Reciever INT NOT NULL ,   Text NVARCHAR(100) NOT NULL )
 insert into Messages (Sender, Reciever, Text) 
 values({UserProvider.id},{contact},'{textBox1.Text}')
 END";
@@ -162,7 +152,7 @@ END";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 textBox1.Text = "";
-
+                loadUsers(contact);
 
 
 
